@@ -12,7 +12,7 @@ const AddStudent = () => {
     firstname: "",
     lastname: "",
     age: 0,
-    major: "default",
+    major: "",
     email: "",
     phone: "",
   });
@@ -41,98 +41,99 @@ const AddStudent = () => {
   };
 
   return (
-    <div className='container' style={{ marginTop: "3rem", maxWidth: "40rem" }}>
+    <div className="container" style={{ marginTop: "3rem", maxWidth: "40rem" }}>
       <h3 style={{ marginTop: "3rem", marginBottom: "2rem", color: "green" }}>
         Create a New Student
       </h3>
       <form onSubmit={handleAddStudent}>
-        <div className='form-group'>
+        <div className="form-group">
           <label>First Name</label>
           <input
-            type='text'
+            type="text"
             required
-            className='form-control'
-            name='firstname'
+            className="form-control"
+            name="firstname"
             value={firstname}
             onChange={handleChange}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Last Name</label>
           <input
-            type='text'
+            type="text"
             required
-            className='form-control'
-            name='lastname'
+            className="form-control"
+            name="lastname"
             value={lastname}
             onChange={handleChange}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Age</label>
           <input
-            type='number'
+            type="number"
             required
-            className='form-control'
-            name='age'
+            className="form-control"
+            name="age"
             value={age}
             onChange={handleChange}
+            min="18"
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Major</label>
           <select
             required
-            className='form-control'
-            name='major'
+            className="form-control"
+            name="major"
             value={major}
             onChange={handleChange}
           >
-            <option value='' disabled>
+            <option value="" disabled>
               Selec a major
             </option>
             {majors.map((item) => (
-              <option value={item._id} key={item._id}>
+              <option value={item.key} key={item._id}>
                 {item.major}
               </option>
             ))}
           </select>
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Email</label>
           <input
-            type='email'
+            type="email"
             required
-            className='form-control'
-            name='email'
+            className="form-control"
+            name="email"
             value={email}
             onChange={handleChange}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <label>Phone</label>
           <input
-            type='text'
+            type="text"
             required
-            className='form-control'
-            name='phone'
+            className="form-control"
+            name="phone"
             value={phone}
             onChange={handleChange}
           />
         </div>
 
-        <div className='form-group'>
+        <div className="form-group">
           <input
-            type='submit'
-            value='Create Student'
-            className='btn btn-success'
+            type="submit"
+            value="Create Student"
+            className="btn btn-success"
           />{" "}
-          <Link to='/' className='btn btn-secondary'>
+          <Link to="/" className="btn btn-secondary">
             Cancel
           </Link>
         </div>

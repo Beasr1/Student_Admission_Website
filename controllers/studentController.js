@@ -29,6 +29,7 @@ const getStudent = async (req, res) => {
 };
 
 const addStudent = async (req, res) => {
+  console.log(req.body);
   const { firstname, lastname, age, major, email, phone } = req.body;
 
   try {

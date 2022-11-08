@@ -10,13 +10,13 @@ const StudentItem = ({ student }) => {
     <tr>
       <td>{student.firstname}</td>
       <td>{student.lastname}</td>
-      <td>{student.major.major}</td>
+      <td>{student.major}</td>
       <td>
-        <Link className='btn btn-light btn-sm' to={`/students/${student._id}`}>
+        <Link className="btn btn-light btn-sm" to={`/students/${student._id}`}>
           view
         </Link>{" "}
         <button
-          className='btn btn-light btn-sm'
+          className="btn btn-light btn-sm"
           onClick={() => deleteStudent(student._id)}
         >
           delete

@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "development") {
 // MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const connection = mongoose.connection;
@@ -35,9 +35,13 @@ connection.once("open", () =>
 // routes
 const studentRoutes = require("./routes/students");
 const majorRoutes = require("./routes/majors");
+const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
 
 app.use("/api/students", studentRoutes);
 app.use("/api/majors", majorRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 // DEPLOY - Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
