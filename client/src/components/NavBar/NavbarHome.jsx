@@ -4,13 +4,14 @@ function NavbarHome() {
   return (
     <div className="Nav">
       <Link to="/home">Home</Link>
-      <Link to="/news">News</Link>
+      <Link to="/Admission">Admissions</Link>
+      <Link to="/About">About</Link>
       <div className="DropDown">
         <button className="dropbtn">Dropdown</button>
         <div className="DropDown-content">
-          <Link to="/a">Link 1</Link>
-          <Link to="/b">Link 2</Link>
-          <Link to="/c">Link 3</Link>
+          <Link to="/Gallery">Gallery</Link>
+          <Link to="/Placement">Placement</Link>
+          <Link to="/life">Life At Lnmiit</Link>
         </div>
       </div>
     </div>
