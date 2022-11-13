@@ -1,0 +1,72 @@
+
+body{
+    box-sizing: border-box;
+}
+.form-container{
+    font-family: 'Poppins', sans-serif;
+}
+.title{
+    font-weight: 600;
+    margin-top:20px;
+   
+}
+.form-header{
+    margin-top: 25px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.form-options{
+    margin:0;
+}
+.form-options a{
+    padding: 0em;
+    margin-left:25px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    color:red;
+}
+.line{
+    background-color: blueviolet;
+    width: 602px;
+    height: 4px;
+}
+.form-header span{
+    font-weight: bold;
+    font-size: 25px;;
+}
+.partitions{
+    display: flex;
+    justify-content:space-around;
+}
+.Pi{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 30px;
+}
+form{
+    font-weight: bold;
+}
+form input{
+    padding:5px;
+}
+form label{
+    margin:10px 0px 10px 0px;
+}
+.gender ,.contact-no,.dob{
+    margin-right: 12px;
+}
+.vertical-line{
+    background-color: black;
+    width:1px;
+    height: 240px;
+}
+.submit{
+    font-size: larger;
+    border-radius: 20px;
+    background-color: cadetblue;
+    width: 260px;
+    border-color: transparent;
+    
+}

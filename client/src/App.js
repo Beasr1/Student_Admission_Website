@@ -15,7 +15,7 @@ import MajorList from "./components/major/MajorList";
 import AddMajor from "./components/major/AddMajor";
 import Signup from "./components/Singup";
 import Login from "./components/Login";
-
+import Appform from "./components/AppForm/Appform";
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
   const [logged, setLogged] = useState(false);
@@ -32,6 +32,7 @@ const App = () => {
   return (
     <div>
       <Navbar logged={logged} />
+
       <div className="container">
         <Routes>
           {user && <Route exact path="/" element={<StudentList />} />}
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/" element={<Navigate replace to="/login" />} />
+          <Route path="/fillform" element={<Appform />} />
         </Routes>
       </div>
     </div>
