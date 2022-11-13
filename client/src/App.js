@@ -16,6 +16,8 @@ import AddMajor from "./components/major/AddMajor";
 import Signup from "./components/Singup";
 import Login from "./components/Login";
 import Appform from "./components/AppForm/Appform";
+// import NavbarHome from "./components/NavBar/NavbarHome";
+// import Home from "./pages/Home/Home";
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
   const [logged, setLogged] = useState(false);
@@ -32,9 +34,10 @@ const App = () => {
   return (
     <div>
       <Navbar logged={logged} />
-
+      {/* <NavbarHome /> */}
       <div className="container">
         <Routes>
+          {/* <Route exact path="/" element={<Home />} /> */}
           {user && <Route exact path="/" element={<StudentList />} />}
           {user && <Route exact path="/about" element={<About />} />}
           {user && (
