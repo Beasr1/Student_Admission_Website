@@ -16,6 +16,7 @@ import AddMajor from "./components/major/AddMajor";
 import Signup from "./components/Singup";
 import Login from "./components/Login";
 import Appform from "./components/AppForm/Appform";
+import Footer from "./components/Footer/Footer";
 // import NavbarHome from "./components/NavBar/NavbarHome";
 // import Home from "./pages/Home/Home";
 const App = () => {
@@ -56,8 +57,11 @@ const App = () => {
           <Route path="/login" exact element={<Login />} />
           <Route path="/" element={<Navigate replace to="/login" />} />
           <Route path="/fillform" element={<Appform />} />
+         
         </Routes>
+     
       </div>
+      <Footer/>
     </div>
   );
 };
