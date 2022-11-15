@@ -1,5 +1,6 @@
 import "./About.css";
 import Dimg from "../../assets/director-pic.jpg";
+import React from "react";
 function About() {
   return (
     <div className="about-bkg">

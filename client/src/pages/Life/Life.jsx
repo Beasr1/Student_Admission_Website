@@ -1,4 +1,5 @@
 import "./Life.css";
+import React from "react";
 function Life() {
   return (
     <div className="life-bkg">

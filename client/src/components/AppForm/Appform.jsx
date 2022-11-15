@@ -1,6 +1,7 @@
 import "./Appform.css";
 import React,{ useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function Appform() {
   const date = new Date();
   const year = date.getFullYear();
@@ -12,7 +13,7 @@ function Appform() {
 
   const formDetails = {
     AdmissionYear: date.getFullYear(),
-    surname: "",
+    fullname: "",
     gender: "gender",
     BirthPlace: "",
     State: "Enter State",
@@ -20,19 +21,25 @@ function Appform() {
     ContactAddress: "",
     Dob: year + "-" + month + "-" + day,
     ContactNo: "",
-    Files: null,
+    email:"",
   };
 
   const [isFilled, setisFilled] = useState(true);
   const [details, setdetails] = useState(formDetails);
 
-  const handleSubmit = (event) => {
-    setisFilled(true);
-    if (isFilled) {
-      alert("Form submitted successfully");
-      window.location = "/status"; //redirect to page after submission
-    }
+  const handleSubmit =async (event) => {
     event.preventDefault();
+    setisFilled(true);
+    console.log(details);
+    // if (isFilled) {
+    //   alert("Form submitted successfully");
+    //   window.location = "/status"; //redirect to page after submission
+    // }
+  //    await fetch('http://localhost:5000/api/students/submit', {
+  //     method: 'POST',
+  //     body: details
+  // })
+ await axios.post("http://localhost:5000/api/students/submit", details);
   };
 
   //changing field will make changes in the details object...
@@ -50,6 +57,8 @@ function Appform() {
       ...updatedValue,
     }));
     console.log(details);
+  
+  
   };
 
   return (
@@ -65,19 +74,19 @@ function Appform() {
           </ul>
         </div>
         <span className="Pi">Personal Information</span>
-        <form onSubmit={handleSubmit} method="get">
+        <form >
           <div className="partitions">
             <div className="partition-1">
               <span>Admission Year: {formDetails.AdmissionYear}</span>
               <br />
-              <label htmlFor="surname">Surname:</label> <br />
+              <label htmlFor="fullname">Full name:</label> <br />
               <input
                 type="text"
-                name="surname"
-                id="surname"
-                value={details.surname}
+                name="fullname"
+                id="fullname"
+                value={details.fullname}
                 onChange={handleChange}
-                placeholder="Enter Your Last Name"
+                placeholder="Enter Your Full Name"
               />
               <br />
               <label htmlFor="BirthPlace">BirthPlace:</label> <br />
@@ -86,6 +95,17 @@ function Appform() {
                 name="BirthPlace"
                 id="BirthPlace"
                 value={details.BirthPlace}
+                onChange={handleChange}
+                placeholder="Enter Your Place Of Birth"
+                required
+              />
+              <br />
+              <label htmlFor="email">Email</label> <br />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={details.email}
                 onChange={handleChange}
                 placeholder="Enter Your Place Of Birth"
                 required
@@ -148,17 +168,17 @@ function Appform() {
                 onChange={handleChange}
               />
               <br />
-              <label htmlFor="uploadFiles">Upload Documents:</label>
+              {/* <label htmlFor="uploadFiles">Upload Documents:</label>
               <input
                 type="file"
                 name="uploadFiles"
                 id="uploadFiles"
                 multiple
                 onChange={handleChange}
-              />
+              /> */}
             </div>
           </div>
-          <button type="submit" className="submit">
+          <button type="submit" className="submit" onClick={handleSubmit}>
             SUBMIT
           </button>
         </form>

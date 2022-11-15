@@ -1,4 +1,5 @@
 import "./Admission.css";
+import React from "react";
 function Admission() {
   const onclick = () => {
     window.location = "/login";
