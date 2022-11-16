@@ -33,7 +33,9 @@
     "npm-check-updates": "^16.3.16",
     "path": "^0.12.7",
     "react-bootstrap": "^2.6.0",
+    "react-easy-swipe": "^0.0.22",
     "react-grid-gallery": "^1.0.0",
+    "react-responsive-carousel": "^3.2.23",
     "yarn-upgrade-all": "^0.7.1"
   },
   "devDependencies": {

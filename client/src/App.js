@@ -23,6 +23,7 @@ import Admission from "./pages/Admission/Admission";
 import Life from "./pages/Life/Life";
 import Placement from "./pages/Placement/Placement";
 import Gallery from "./pages/Gallery/Gallery";
+import DemoCarousel from "./components/Carousel/Carousel";
 
 
 const App = () => {
@@ -68,6 +69,7 @@ const App = () => {
         <Route path="/Placement" exact element={<Placement />} />
         <Route path="/gallery" exact element={<Gallery/>} />
         <Route path="/ann" exact element={<Announcement/>} />
+        <Route path="/cc" exact element={<DemoCarousel/>}/>
       </Routes>
     </div>
   );
