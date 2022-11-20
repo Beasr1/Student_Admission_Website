@@ -1,4 +1,5 @@
 const Student = require("../models/Student");
+const FormDetails=require("../models/Form")
 
 const getStudents = async (req, res) => {
   try {
@@ -53,6 +54,46 @@ const addStudent = async (req, res) => {
     }
   }
 };
+const addform = async (req, res) => {
+  console.log(req.body);
+  const {  AdmissionYear,
+    BirthPlace,
+    City ,
+    ContactAddress,
+    ContactNo,
+    email,
+    Dob,
+    State, 
+    gender,
+    fullname } = req.body;
+
+  try {
+    const form = await FormDetails.create({
+      AdmissionYear,
+      BirthPlace,
+      City ,
+      ContactAddress,
+      ContactNo,
+      email,
+      Dob,
+      State, 
+      gender,
+      fullname,
+    },
+);
+
+    res.status(201).json(form);
+  } catch (err) {
+    if (err.name === "ValidationError") {
+      const messages = Object.values(err.errors).map((val) => val.message);
+
+      return res.status(400).json({ error: messages });
+    } else {
+      return res.status(500).json({ error: "Server Error" });
+    }
+  }
+};
+
 
 const editStudent = async (req, res) => {
   const { firstname, lastname, age, major, email, phone } = req.body;
@@ -89,6 +130,7 @@ const deleteStudent = async (req, res) => {
 module.exports = {
   getStudents,
   getStudent,
+  addform,
   addStudent,
   editStudent,
   deleteStudent,

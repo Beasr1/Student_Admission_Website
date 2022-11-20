@@ -1,3 +1,4 @@
+import React from "react";
 import "./Placement.css";
 import placementImg from "./../../assets/placementJpg.jpg";
 import avg from "./../../assets/avg.png";
