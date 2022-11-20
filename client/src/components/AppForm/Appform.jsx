@@ -1,38 +1,56 @@
 import "./Appform.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { First } from "react-bootstrap/esm/PageItem";
 function Appform() {
   const date = new Date();
   const year = date.getFullYear();
   let day = date.getDay();
   let month = date.getMonth() + 1;
+  const [prefBranch, setprefBranch] = useState(["1", "2", "3", "4"]);
 
   if (day < 10) day = "0" + day;
   if (month < 10) month = "0" + month;
+  const [cse, setcse] = useState("1");
+  const [ece, setece] = useState("2");
+  const [cce, setcce] = useState("3");
+  const [me, setme] = useState("4");
 
   const formDetails = {
     AdmissionYear: date.getFullYear(),
-    surname: "",
+    fullname: "",
     gender: "gender",
     BirthPlace: "",
-    State: "Enter State",
-    City: "Enter City Name",
+    State: "",
+    City: "",
     ContactAddress: "",
     Dob: year + "-" + month + "-" + day,
     ContactNo: "",
-    Files: null,
+    email: "",
+    percentile: "",
+    prefBranch: ["1", "2", "3", "4"],
   };
 
   const [isFilled, setisFilled] = useState(true);
   const [details, setdetails] = useState(formDetails);
-
-  const handleSubmit = (event) => {
-    setisFilled(true);
-    if (isFilled) {
-      alert("Form submitted successfully");
-      window.location = "/status"; //redirect to page after submission
-    }
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setisFilled(true);
+    setdetails((details) => ({
+      ...details,
+      prefBranch: [cse, ece, cce, me],
+    }));
+    console.log(details);
+    // if (isFilled) {
+    //   alert("Form submitted successfully");
+    //   window.location = "/status"; //redirect to page after submission
+    // }
+    //    await fetch('http://localhost:5000/api/students/submit', {
+    //     method: 'POST',
+    //     body: details
+    // })
+    await axios.post("http://localhost:5000/api/students/submit", details);
   };
 
   //changing field will make changes in the details object...
@@ -51,7 +69,55 @@ function Appform() {
     }));
     console.log(details);
   };
-
+  const handlecse = (e) => {
+    console.log(e.target.value, ece);
+    if (ece === e.target.value) {
+      console.log(ece, cse);
+      setece(cse);
+    } else if (cce === e.target.value) {
+      setcce(cse);
+    } else if (me === e.target.value) {
+      setme(cse);
+    }
+    setcse(e.target.value);
+    e.preventDefault();
+  };
+  const handlecce = (e) => {
+    console.log(e.target.value, ece);
+    if (ece === e.target.value) {
+      setece(cce);
+    } else if (cse === e.target.value) {
+      setcse(cce);
+    } else if (me === e.target.value) {
+      setme(cce);
+    }
+    setcce(e.target.value);
+    e.preventDefault();
+  };
+  const handleme = (e) => {
+    console.log(e.target.value, ece);
+    if (ece === e.target.value) {
+      setece(me);
+    } else if (cse === e.target.value) {
+      setcse(me);
+    } else if (cce === e.target.value) {
+      setcce(me);
+    }
+    setme(e.target.value);
+    e.preventDefault();
+  };
+  const handleece = (e) => {
+    console.log(e.target.value, ece);
+    if (cse === e.target.value) {
+      setcse(ece);
+    } else if (cce === e.target.value) {
+      setcce(ece);
+    } else if (me === e.target.value) {
+      setme(ece);
+    }
+    setece(e.target.value);
+    e.preventDefault();
+  };
   return (
     <div>
       <div className="form-container">
@@ -65,19 +131,19 @@ function Appform() {
           </ul>
         </div>
         <span className="Pi">Personal Information</span>
-        <form onSubmit={handleSubmit} method="get">
+        <form>
           <div className="partitions">
             <div className="partition-1">
               <span>Admission Year: {formDetails.AdmissionYear}</span>
               <br />
-              <label htmlFor="surname">Surname:</label> <br />
+              <label htmlFor="fullname">Full name:</label> <br />
               <input
                 type="text"
-                name="surname"
-                id="surname"
-                value={details.surname}
+                name="fullname"
+                id="fullname"
+                value={details.fullname}
                 onChange={handleChange}
-                placeholder="Enter Your Last Name"
+                placeholder="Enter Your Full Name"
               />
               <br />
               <label htmlFor="BirthPlace">BirthPlace:</label> <br />
@@ -86,6 +152,17 @@ function Appform() {
                 name="BirthPlace"
                 id="BirthPlace"
                 value={details.BirthPlace}
+                onChange={handleChange}
+                placeholder="Enter Your Place Of Birth"
+                required
+              />
+              <br />
+              <label htmlFor="email">Email</label> <br />
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={details.email}
                 onChange={handleChange}
                 placeholder="Enter Your Place Of Birth"
                 required
@@ -106,6 +183,26 @@ function Appform() {
                 <option value="gender">Gender</option>
               </select>
             </div>
+            <input
+              type="text"
+              name="State"
+              id="State"
+              value={details.State}
+              onChange={handleChange}
+              placeholder="Enter State"
+              required
+            />
+            <br />
+            <input
+              type="text"
+              name="City"
+              id="City"
+              value={details.City}
+              onChange={handleChange}
+              placeholder="Enter City"
+              required
+            />
+            <br />
             <div className="vertical-line"></div>
             <div className="partition-2">
               <label htmlFor="ContactAddress">Contact Address:</label>
@@ -121,6 +218,7 @@ function Appform() {
                 maxLength={100}
                 required
               />
+
               <br />
               <label htmlFor="Dob" className="dob">
                 Date Of Birth:
@@ -148,17 +246,56 @@ function Appform() {
                 onChange={handleChange}
               />
               <br />
-              <label htmlFor="uploadFiles">Upload Documents:</label>
+
+              <label htmlFor="percentile" className="percentile">
+                Percentile:
+              </label>
+              <input
+                type="number"
+                name="percentile"
+                step="any"
+                id="percentile"
+                value={details.percentile}
+                placeholder="enter percentile"
+                required
+                onChange={handleChange}
+              />
+              <br />
+              <label htmlFor="pref">CSE</label>
+              <select name="pref" id="pref" value={cse} onChange={handlecse}>
+                {prefBranch.map((element) => (
+                  <option value={element}>{element}</option>
+                ))}
+              </select>
+              <label htmlFor="pref">ECE</label>
+              <select name="pref" id="pref" value={ece} onChange={handleece}>
+                {prefBranch.map((element) => (
+                  <option value={element}>{element}</option>
+                ))}
+              </select>
+              <label htmlFor="pref">ME</label>
+              <select name="pref" id="pref" value={me} onChange={handleme}>
+                {prefBranch.map((element) => (
+                  <option value={element}>{element}</option>
+                ))}
+              </select>
+              <label htmlFor="pref">CCE</label>
+              <select name="pref" id="pref" value={cce} onChange={handlecce}>
+                {prefBranch.map((element) => (
+                  <option value={element}>{element}</option>
+                ))}
+              </select>
+              {/* <label htmlFor="uploadFiles">Upload Documents:</label>
               <input
                 type="file"
                 name="uploadFiles"
                 id="uploadFiles"
                 multiple
                 onChange={handleChange}
-              />
+              /> */}
             </div>
           </div>
-          <button type="submit" className="submit">
+          <button type="submit" className="submit" onClick={handleSubmit}>
             SUBMIT
           </button>
         </form>

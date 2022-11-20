@@ -9,7 +9,7 @@ function About() {
         <div className="directorContainer">
           <div id="directorImage">
             <img src={Dimg} alt="" id="Dimg" />
-            <p>Prof. Director Banerjee</p>
+            <p>Prof. Rahul Banerjee</p>
             <i>Director</i>
           </div>
           <div className="director-message">

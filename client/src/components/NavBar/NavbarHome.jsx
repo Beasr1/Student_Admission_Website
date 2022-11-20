@@ -6,8 +6,9 @@ function NavbarHome() {
       <Link to="/home">Home</Link>
       <Link to="/Admission">Admissions</Link>
       <Link to="/About">About</Link>
+      <Link to="/timetable">Time Table</Link>
       <div className="DropDown">
-        <button className="dropbtn">Dropdown</button>
+        <button className="dropbtn">Students</button>
         <div className="DropDown-content">
           <Link to="/Gallery">Gallery</Link>
           <Link to="/Placement">Placement</Link>

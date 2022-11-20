@@ -15,7 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import AddMajor from "./components/major/AddMajor";
 // import Signup from "./components/Singup";
 import Login from "./components/Login";
-// import Appform from "./components/AppForm/Appform";
+import Appform from "./components/AppForm/Appform";
 import NavbarHome from "./components/NavBar/NavbarHome";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -23,6 +23,7 @@ import Footer from "./components/Footer/Footer";
 import Admission from "./pages/Admission/Admission";
 import Life from "./pages/Life/Life";
 import Placement from "./pages/Placement/Placement";
+import Timetable from "./pages/TimeTable/Timetable";
 const App = () => {
   // const { getStudents, getMajors } = useAppContext();
   // const [logged, setLogged] = useState(false);
@@ -57,13 +58,14 @@ const App = () => {
           {user && <Route exact path="/majors/add" element={<AddMajor />} />}
 
           <Route path="/" element={<Navigate replace to="/login" />} />
-        <Route path="/fillform" element={<Appform />} /> */}
         {/* <Route path="/signup" exact element={<Signup />} /> */}
         <Route path="/About" element={<About />} />
+        <Route path="/fillform" element={<Appform />} /> */
         <Route path="/login" exact element={<Login />} />
         <Route path="/Admission" exact element={<Admission />} />
         <Route path="/life" exact element={<Life />} />
         <Route path="/Placement" exact element={<Placement />} />
+        <Route path="/Timetable" exact element={<Timetable />} />
       </Routes>
       <Footer />
     </div>

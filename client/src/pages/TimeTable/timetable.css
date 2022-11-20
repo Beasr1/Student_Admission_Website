@@ -1,18 +1,7 @@
-.life-container{
-    margin-top: 40px;
-    padding-right: 20px;
-    margin-left: 20px;
-}
-#life-para{
-    text-align: left;
-}
-
-.lifeContent{
-    margin-top: 40px;
-}
-.life-bkg{
+.timetable-container{
+  display: flex;
     background-size: cover  ;
-    /* height: 100vh; */  
+    height: 100vh;  
     width:100%;
     background-position:  center;
     background-image: url('../../assets/life.jpg');
@@ -21,5 +10,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color:white;
+    color:blanchedalmond;
 }
