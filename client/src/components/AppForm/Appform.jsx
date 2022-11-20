@@ -1,14 +1,8 @@
 import "./Appform.css";
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { First } from "react-bootstrap/esm/PageItem";
-=======
-import React,{ useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
 function Appform() {
   const date = new Date();
   const year = date.getFullYear();
@@ -33,18 +27,14 @@ function Appform() {
     ContactAddress: "",
     Dob: year + "-" + month + "-" + day,
     ContactNo: "",
-<<<<<<< HEAD
     email: "",
     percentile: "",
     prefBranch: ["1", "2", "3", "4"],
-=======
-    email:"",
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
+    email: "",
   };
 
   const [isFilled, setisFilled] = useState(true);
   const [details, setdetails] = useState(formDetails);
-<<<<<<< HEAD
   const handleSubmit = async (event) => {
     event.preventDefault();
     setisFilled(true);
@@ -52,30 +42,20 @@ function Appform() {
       ...details,
       prefBranch: [cse, ece, cce, me],
     }));
-=======
-
-  const handleSubmit =async (event) => {
-    event.preventDefault();
-    setisFilled(true);
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
     console.log(details);
     // if (isFilled) {
     //   alert("Form submitted successfully");
     //   window.location = "/status"; //redirect to page after submission
     // }
-<<<<<<< HEAD
     //    await fetch('http://localhost:5000/api/students/submit', {
     //     method: 'POST',
     //     body: details
     // })
     await axios.post("http://localhost:5000/api/students/submit", details);
-=======
-  //    await fetch('http://localhost:5000/api/students/submit', {
-  //     method: 'POST',
-  //     body: details
-  // })
- await axios.post("http://localhost:5000/api/students/submit", details);
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
+    //    await fetch('http://localhost:5000/api/students/submit', {
+    //     method: 'POST',
+    //     body: details
+    // })
   };
 
   //changing field will make changes in the details object...
@@ -93,8 +73,6 @@ function Appform() {
       ...updatedValue,
     }));
     console.log(details);
-  
-  
   };
   const handlecse = (e) => {
     console.log(e.target.value, ece);
@@ -158,11 +136,7 @@ function Appform() {
           </ul>
         </div>
         <span className="Pi">Personal Information</span>
-<<<<<<< HEAD
         <form>
-=======
-        <form >
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
           <div className="partitions">
             <div className="partition-1">
               <span>Admission Year: {formDetails.AdmissionYear}</span>
@@ -277,7 +251,6 @@ function Appform() {
                 onChange={handleChange}
               />
               <br />
-<<<<<<< HEAD
 
               <label htmlFor="percentile" className="percentile">
                 Percentile:
@@ -317,8 +290,6 @@ function Appform() {
                   <option value={element}>{element}</option>
                 ))}
               </select>
-=======
->>>>>>> 79d89ae9749c7aa27e7364933360c5dd732445cf
               {/* <label htmlFor="uploadFiles">Upload Documents:</label>
               <input
                 type="file"

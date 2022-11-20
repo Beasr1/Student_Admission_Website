@@ -8,18 +8,17 @@
   .column {
     flex: 25%;
     max-width: 25%;
-    padding: 0 4px;
+    /* padding: 0 4px;   */
   }
   
   .column img {
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
-  }
-  img{
     height: 376px;
     width: 251px;
   }
+ 
   
   /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 800px) {
