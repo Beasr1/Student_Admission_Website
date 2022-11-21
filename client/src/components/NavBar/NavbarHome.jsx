@@ -9,7 +9,7 @@ function NavbarHome({ logged }) {
   };
   return (
     <div className="Nav">
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
       <Link to="/Admission">Admissions</Link>
       <Link to="/About">About</Link>
       <Link to="/timetable">Time Table</Link>

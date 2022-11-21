@@ -1,0 +1,25 @@
+.accordion-content{
+    text-align: left;
+padding-top: 1rem;    
+padding: 1rem;    
+font-size: large;
+
+}
+#accordion-status{
+font-size: large;
+    border-radius: 2rem;
+    /* text-align: center; */
+    width: 3rem;
+}
+#accordion-status:hover{
+    cursor: pointer;
+    /* font-size: 30px;  */
+    font-weight: bolder;
+    color:white;
+}
+.accordion-title>span{
+    margin:1rem;
+}
+.accordion-item{
+    background-color: lightgrey;
+}

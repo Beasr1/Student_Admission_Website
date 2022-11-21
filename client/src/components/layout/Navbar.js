@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ logged }) => {
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.reload();
+    window.location = "/login";
   };
   return (
     <nav className="navbar navbar-dark bg-success navbar-expand-md">

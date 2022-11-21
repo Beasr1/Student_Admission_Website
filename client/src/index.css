@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   box-sizing: border-box;
@@ -6,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -14,4 +16,10 @@ code {
 }
 .lol{
   
+}
+
+@media screen and (max-width:850px) {
+  #root{
+  font-size:10 px;
+  }
 }

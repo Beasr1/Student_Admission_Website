@@ -1,4 +1,4 @@
-import React ,{ useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -18,6 +18,8 @@ const Login = () => {
       const { data: res } = await axios.post(url, data);
       console.log(data);
       localStorage.setItem("token", res.data);
+      localStorage.setItem("pass", data.password);
+      localStorage.setItem("user", data.email);
       window.location = "/";
     } catch (error) {
       if (

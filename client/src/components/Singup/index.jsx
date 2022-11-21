@@ -1,4 +1,4 @@
-import React ,{ useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -10,6 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const Signup = () => {
       const { data: res } = await axios.post(url, data);
       navigate("/login");
       console.log(res.message);
+      // console.log(data.password);
     } catch (error) {
       if (
         error.response &&

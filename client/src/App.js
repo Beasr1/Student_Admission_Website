@@ -31,46 +31,76 @@ const App = () => {
   const { getStudents, getMajors } = useAppContext();
   const [logged, setLogged] = useState(false);
   const user = localStorage.getItem("token");
-
+  const admin = localStorage.getItem("user");
+  const password = localStorage.getItem("pass");
+  const [adminstrator, setAdministrator] = useState("none");
   useEffect(() => {
     getStudents();
     getMajors();
     console.log(user);
     if (user) setLogged(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (admin === "a@gmail.com" && password === "Naman@1234") {
+      setAdministrator("admin");
+    } else {
+      setAdministrator("user");
+    }
   }, []);
 
   return (
     <div className="lol">
-      {/* <Navbar logged={logged} /> */}
-      <NavbarHome logged={logged} />
       <Routes>
-        {/* {user && <Route exact path="/" element={<StudentList />} />} */}
-        {user && <Route exact path="/about" element={<About />} />}
-        {user && <Route exact path="/students/add" element={<AddStudent />} />}
-        {user && (
-          <Route exact path="/students/edit/:id" element={<EditStudent />} />
-        )}
-        {user && (
-          <Route exact path="/students/:id" element={<StudentDetails />} />
-        )}
-        {user && <Route exact path="/majors" element={<MajorList />} />}
-        {user && <Route exact path="/majors/add" element={<AddMajor />} />}
-        {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
-        {/* <Route path="/signup" exact element={<Signup />} /> */}
-        <Route path="/About" element={<About />} />
-        <Route path="/fillform" element={<Appform />} /> */
         <Route path="/login" exact element={<Login />} />
         <Route path="/signup" exact element={<Signup />} />
-        <Route path="/Admission" exact element={<Admission />} />
-        <Route path="/life" exact element={<Life />} />
-        <Route path="/Placement" exact element={<Placement />} />
-        <Route path="/Timetable" exact element={<Timetable />} />
-        <Route path="/gallery" exact element={<Gallery />} />
-        <Route path="/ann" exact element={<Announcement />} />
-        <Route path="/cc" exact element={<DemoCarousel />} />
-        <Route exact path="/" element={<Home />} />
       </Routes>
+      {admin === "a@gmail.com" && password === "Naman@1234" ? (
+        <>
+          <Navbar logged={logged} />
+
+          <Routes>
+            {/* <Route path="/login" exact element={<Login />} /> */}
+            {user && <Route exact path="/" element={<StudentList />} />}
+            <Route path="/login" exact element={<Login />} />
+          </Routes>
+        </>
+      ) : (
+        <>
+          {adminstrator === "user" && <NavbarHome logged={logged} />}
+
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            {user && <Route exact path="/about" element={<About />} />}
+            {user && (
+              <Route exact path="/students/add" element={<AddStudent />} />
+            )}
+            {user && (
+              <Route
+                exact
+                path="/students/edit/:id"
+                element={<EditStudent />}
+              />
+            )}
+            {user && (
+              <Route exact path="/students/:id" element={<StudentDetails />} />
+            )}
+            {user && <Route exact path="/majors" element={<MajorList />} />}
+            {user && <Route exact path="/majors/add" element={<AddMajor />} />}
+            {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
+            {/* <Route path="/signup" exact element={<Signup />} /> */}
+            <Route path="/About" element={<About />} />
+            <Route path="/fillform" element={<Appform />} /> */
+            {/* <Route path="/login" exact element={<Login />} />
+            <Route path="/signup" exact element={<Signup />} /> */}
+            <Route path="/Admission" exact element={<Admission />} />
+            <Route path="/life" exact element={<Life />} />
+            <Route path="/Placement" exact element={<Placement />} />
+            <Route path="/Timetable" exact element={<Timetable />} />
+            <Route path="/gallery" exact element={<Gallery />} />
+            <Route path="/ann" exact element={<Announcement />} />
+            <Route path="/cc" exact element={<DemoCarousel />} />
+          </Routes>
+        </>
+      )}
     </div>
   );
 };

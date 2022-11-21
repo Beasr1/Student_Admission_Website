@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "./Accordion";
+import "./Announcement.css";
 
 const Annoucement = () => {
   const accordionData = [
@@ -29,8 +30,8 @@ const Annoucement = () => {
 
   return (
     <div>
-      <h1>React Accordion Demo</h1>
-      <div className="accordion">
+      <h3 id="announcement-header">Announcements!</h3>
+      <div className="accordions">
         {accordionData.map(({ title, content }) => (
           <Accordion title={title} content={content} />
         ))}
