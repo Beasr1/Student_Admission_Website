@@ -7,7 +7,7 @@ import { useAppContext } from "./context/AppContext";
 import Navbar from "./components/layout/Navbar";
 // import About from "./components/layout/About";
 import StudentList from "./components/Admin/StudentList";
-import StudentDetails from "./components/student/StudentDetails";
+import StudentDetails from "./components/Admin/StudentDetails";
 import AddStudent from "./components/student/AddStudent";
 import EditStudent from "./components/student/EditStudent";
 import MajorList from "./components/major/MajorList";
@@ -26,6 +26,7 @@ import Timetable from "./pages/TimeTable/Timetable";
 import Gallery from "./pages/Gallery/Gallery";
 import DemoCarousel from "./components/Carousel/Carousel";
 import About from "./pages/About/About";
+import StudentEdit from "./components/Admin/StudentEdit";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
@@ -34,13 +35,14 @@ const App = () => {
   const admin = localStorage.getItem("user");
   const password = localStorage.getItem("pass");
   const [adminstrator, setAdministrator] = useState("none");
+
   useEffect(() => {
     getStudents();
     getMajors();
     console.log(user);
     if (user) setLogged(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (admin === "a@gmail.com" && password === "Naman@1234") {
+    if (admin === "a@gmail.com" && password === "Naman@123") {
       console.log("admin");
       setAdministrator("admin");
     } else {
@@ -69,6 +71,8 @@ const App = () => {
             {!user && <Route exact path="/" element={<Login />} />}
             <Route path="/login" exact element={<Login />} />
             <Route path="/fillform" element={<Appform />} />
+            <Route path="/students/:id" element={<StudentDetails/>}/>
+            <Route path="/students/edit/:id" element={<StudentEdit/>}/>
           </Routes>
         </>
       ) : (

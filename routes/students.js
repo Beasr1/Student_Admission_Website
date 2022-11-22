@@ -8,7 +8,6 @@ const {
   editStudent,
   deleteStudent,
 } = require("../controllers/studentController");
-
 // Get all students
 router.get("/", getStudents);
 
