@@ -1,6 +1,7 @@
 import "./Admin.css";
 import { useState } from "react";
 import axios from "axios";
+import StudentShortlist from "../../components/Admin/StudentShortlist";
 function Admin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,6 +38,7 @@ function Admin() {
     });
   };
   return (
+    <>
     <div>
       <div className="admin-form-container">
         <h1 id="admin-title">Branch-wise percentile criteria.</h1>
@@ -83,13 +85,13 @@ function Admin() {
                 onChange={handleme}
               />
             </div>
-            <button type="submit" className="submit" onClick={handleSubmit}>
-              Submit
-            </button>
+            <StudentShortlist list={eligible}/>
           </form>
         </div>
       </div>
     </div>
+    
+    </>
   );
 }
 
