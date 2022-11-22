@@ -4,7 +4,6 @@ body{
 }
 .form-container{
     font-family: 'Poppins', sans-serif;
-     background-color: rgb(135, 179, 236);
      width: 60%;
      height: 80%;
 }
@@ -112,6 +111,7 @@ form label{
 }
 .branchesss{
     display: flex;
+    margin-left: 1rem;
     
 }
 
@@ -123,4 +123,13 @@ form label{
         background-color: #d2e5fe;
         padding-top: 2rem;
         height:800px
+}
+.form-branch{
+    display: inline-flex;
+    margin-left: 1rem;
+}
+.branchesss>div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.5rem;
 }

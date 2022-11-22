@@ -5,7 +5,7 @@ import axios from "axios";
 import { First } from "react-bootstrap/esm/PageItem";
 import { useAppContext } from "../../context/AppContext";
 function Appform() {
-  const {  addStudent } = useAppContext();
+  const { addStudent } = useAppContext();
   const date = new Date();
   const year = date.getFullYear();
   let day = date.getDay();
@@ -32,7 +32,7 @@ function Appform() {
     email: "",
     percentile: "",
     prefBranch: ["1", "2", "3", "4"],
-    uploadFiles:"dega"
+    uploadFiles: "dega",
   };
 
   const [isFilled, setisFilled] = useState(true);
@@ -54,7 +54,7 @@ function Appform() {
     //     body: details
     // })
     // await axios.post("http://localhost:5000/api/students/create", details);
-    addStudent(details)
+    addStudent(details);
     //    await fetch('http://localhost:5000/api/students/submit', {
     //     method: 'POST',
     //     body: details
@@ -251,8 +251,8 @@ function Appform() {
               className="form-box"
               style={{ display: "inline" }}
             />
-            <div className="form-features">
-              <div>Branch Preference</div>
+            <div className="form-features form-branch">
+              <div style={{ paddingTop: "22px" }}>Branch Preference:</div>
               <div className="branchesss">
                 <div>
                   <label htmlFor="pref">CSE</label>

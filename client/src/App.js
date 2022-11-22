@@ -40,14 +40,14 @@ const App = () => {
     console.log(user);
     if (user) setLogged(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (admin === "a@gmail.com" && password === "Naman@123") {
-      console.log("admin")
+    if (admin === "a@gmail.com" && password === "Naman@1234") {
+      console.log("admin");
       setAdministrator("admin");
     } else {
       setAdministrator("user");
     }
 
-    if(!admin || !user){
+    if (!admin || !user) {
       setAdministrator("none");
       setLogged(false);
     }
@@ -59,14 +59,14 @@ const App = () => {
         <Route path="/login" exact element={<Login />} />
         <Route path="/signup" exact element={<Signup />} />
       </Routes>
-      {adminstrator==="admin" ? (
+      {adminstrator === "admin" ? (
         <>
           <Navbar logged={logged} />
 
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
-            {!user && <Route exact path="/" element={<Login/>}/>}
+            {!user && <Route exact path="/" element={<Login />} />}
             <Route path="/login" exact element={<Login />} />
             <Route path="/fillform" element={<Appform />} />
           </Routes>
@@ -76,12 +76,20 @@ const App = () => {
         <>
           <NavbarHome logged={logged} />
           <Routes>
-            <Route exact path="/" element={<Home logged={logged}/>} />
+            <Route exact path="/" element={<Home logged={logged} />} />
             {user && <Route exact path="/about" element={<About />} />}
             {user && <Route exact path="/students/add" element={<Appform />} />}
 
-            {user &&  <Route exact path="/students/edit/:id" element={<EditStudent />} /> }
-            {user &&  <Route exact path="/students/:id" element={<StudentDetails />} /> }
+            {user && (
+              <Route
+                exact
+                path="/students/edit/:id"
+                element={<EditStudent />}
+              />
+            )}
+            {user && (
+              <Route exact path="/students/:id" element={<StudentDetails />} />
+            )}
             {user && <Route exact path="/majors" element={<MajorList />} />}
             {user && <Route exact path="/majors/add" element={<AddMajor />} />}
             {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
@@ -90,7 +98,11 @@ const App = () => {
             <Route path="/fillform" element={<Appform />} />
             {/* <Route path="/login" exact element={<Login />} />
             <Route path="/signup" exact element={<Signup />} /> */}
-            <Route path="/Admission" exact element={<Admission logged={logged}/>} />
+            <Route
+              path="/Admission"
+              exact
+              element={<Admission logged={logged} />}
+            />
             <Route path="/life" exact element={<Life />} />
             <Route path="/Placement" exact element={<Placement />} />
             <Route path="/Timetable" exact element={<Timetable />} />
