@@ -8,9 +8,9 @@ const StudentItem = ({ student }) => {
 
   return (
     <tr>
-      <td>{student.firstname}</td>
-      <td>{student.lastname}</td>
-      <td>{student.major}</td>
+      <td>{student.fullname}</td>
+      <td>{student.email}</td>
+      <td>{student.percentile}</td>
       <td>
         <Link className="btn btn-light btn-sm" to={`/students/${student._id}`}>
           view

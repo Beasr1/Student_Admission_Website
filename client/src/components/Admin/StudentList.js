@@ -27,13 +27,13 @@ const StudentList = () => {
       >
         Create a New Student
       </Link>
-      
+
       <table className="table  table-hover table-success">
         <thead className="thead-dark">
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Major</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Percentile</th>
             <th>Actions</th>
           </tr>
         </thead>

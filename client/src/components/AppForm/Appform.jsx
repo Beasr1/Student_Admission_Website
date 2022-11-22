@@ -44,7 +44,7 @@ function Appform() {
       ...details,
       prefBranch: [cse, ece, cce, me],
     }));
-    console.log(details);
+    //console.log(details);
     // if (isFilled) {
     //   alert("Form submitted successfully");
     //   window.location = "/status"; //redirect to page after submission
@@ -312,6 +312,8 @@ function Appform() {
                 </div>
               </div>
             </div>
+             <button type="submit" className="submit" onClick={handleSubmit}>
+   SUBMIT </button>
           </form>
         </div>
       </div>

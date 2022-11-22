@@ -114,13 +114,11 @@ const AppProvider = ({ children }) => {
   // Add a student
   const addStudent = async (formData) => {
     try {
-      const config = {
-        "Content-Type": "application/json",
-      };
+     
+      console.log(formData);
       const { data } = await axios.post(
         "http://localhost:5000/api/students/create",
-        formData,
-        config
+        formData
       );
 
       dispatch({ type: STUDENT_ADD, payload: data });

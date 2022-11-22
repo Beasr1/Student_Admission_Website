@@ -13,7 +13,19 @@ const StudentDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { _id, firstname, lastname, age, major, email, phone } = student;
+  const{ AdmissionYear,
+    fullname,
+    gender,
+    BirthPlace,
+    State,
+    City,
+    ContactAddress,
+    Dob,
+    ContactNo,
+    email,
+    percentile,
+    prefBranch,
+    uploadFiles } = student;
 
   if (!student || loading) return <h2>Loading</h2>;
 
