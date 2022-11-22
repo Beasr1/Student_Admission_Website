@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useAppContext } from "./context/AppContext";
 import Navbar from "./components/layout/Navbar";
 // import About from "./components/layout/About";
-import StudentList from "./components/student/StudentList";
+import StudentList from "./components/Admin/StudentList";
 import StudentDetails from "./components/student/StudentDetails";
 import AddStudent from "./components/student/AddStudent";
 import EditStudent from "./components/student/EditStudent";
