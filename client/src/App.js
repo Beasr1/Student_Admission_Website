@@ -27,6 +27,7 @@ import Gallery from "./pages/Gallery/Gallery";
 import DemoCarousel from "./components/Carousel/Carousel";
 import About from "./pages/About/About";
 import Admin from "./pages/Admin/Admin";
+import Track from "./pages/TrackApplication/Track";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
@@ -58,7 +59,7 @@ const App = () => {
     <div className="lol">
       <Routes>
         <Route path="/login" exact element={<Login />} />
-        <Route path="/Admin" exact element={<Admin />} />
+
         <Route path="/signup" exact element={<Signup />} />
       </Routes>
       {adminstrator === "admin" ? (
@@ -69,6 +70,7 @@ const App = () => {
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
             {!user && <Route exact path="/" element={<Login />} />}
+            <Route path="/Admin" exact element={<Admin />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/fillform" element={<Appform />} />
           </Routes>
@@ -80,6 +82,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home logged={logged} />} />
             {user && <Route exact path="/about" element={<About />} />}
+            {user && <Route path="/track" exact element={<Track />} />}
             {user && <Route exact path="/students/add" element={<Appform />} />}
 
             {user && (
