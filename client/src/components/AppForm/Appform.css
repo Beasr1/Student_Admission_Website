@@ -4,6 +4,40 @@ body{
 }
 .form-container{
     font-family: 'Poppins', sans-serif;
+     background-color: rgb(135, 179, 236);
+     width: 60%;
+     height: 80%;
+}
+.form-box{
+    background-color: rgb(232, 233, 254);
+    outline: none;
+    border:transparent;
+    border-radius: 0.3rem;
+    padding: 0.7rem;
+    width: 18rem;
+    margin-top:1rem;
+}
+.form-box::placeholder{
+    font-weight: bold;
+    color:#576ba9;
+}
+#ContactAddress{
+    width: 42rem;
+    height: 4rem;
+    resize: none;
+}
+#Dob{
+    padding-top: 0;
+}
+.form-features{
+    display: flex;
+}
+.form-features{
+    justify-content: space-between;
+}
+.form-background{
+    padding: 3rem;
+    background-color: white;
 }
 .title{
     font-weight: 600;
@@ -69,4 +103,24 @@ form label{
     width: 260px;
     border-color: transparent;
     
+}
+#Dob{
+    width: 10rem;
+}
+.branches{
+    width:4rem; 
+}
+.branchesss{
+    display: flex;
+    
+}
+
+.form-container-container{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #d2e5fe;
+        padding-top: 2rem;
+        height:800px
 }
