@@ -7,7 +7,7 @@ const {
   addUndergraduate,
   editUndergraduate,
   deleteUndergraduate,
-} = require("../controllers/undergradateController");
+} = require("../controllers/undergraduateController");
 // Get all undergradates
 router.get("/", getUndergraduates);
 

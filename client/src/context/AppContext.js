@@ -31,8 +31,8 @@ const initialState = {
   major: {},
   loading: true,
   error: {},
-  undergraduate:{},
-  undergraduates:[]
+  undergraduate: {},
+  undergraduates: [],
 };
 
 const AppProvider = ({ children }) => {
@@ -124,7 +124,6 @@ const AppProvider = ({ children }) => {
   // Add a student
   const addStudent = async (formData) => {
     try {
-     
       console.log(formData);
       const { data } = await axios.post(
         "http://localhost:5000/api/students/create",
@@ -171,78 +170,91 @@ const AppProvider = ({ children }) => {
 
   //----------------------------------------------------------------------------------------
   //UNDERGRADUATES
-   // Get all undergraduates
- const getUndergraduates = async () => {
-  try {
-    const { data } = await axios.get("/api/undergraduates");
+  // Get all undergraduates
+  const getUndergraduates = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:5000/api/undergraduates"
+      );
+      console.log(data);
+      dispatch({ type: UNDERGRADUATES_GET, payload: data });
+    } catch (err) {
+      console.log(err.message);
+      dispatch({ type: UNDERGRADUATE_ERROR, payload: err.message.error });
+    }
+  };
 
-    dispatch({ type: UNDERGRADUATES_GET, payload: data });
-  } catch (err) {
-    console.log(err.message);
-    dispatch({ type: UNDERGRADUATE_ERROR, payload: err.message.error });
-  }
-};
+  // Get a single undergraduate
+  const getUndergraduate = async (undId) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:5000/api/undergraduates/${undId}`
+      );
 
-// Get a single undergraduate
-const getUndergraduate = async (undId) => {
-  try {
-    const { data } = await axios.get(
-      `http://localhost:5000/api/undergraduates/${undId}`
-    );
+      dispatch({ type: UNDERGRADUATE_GET, payload: data });
+    } catch (err) {
+      dispatch({
+        type: UNDERGRADUATE_ERROR,
+        payload: err.response.data.error[0],
+      });
+    }
+  };
 
-    dispatch({ type: UNDERGRADUATE_GET, payload: data });
-  } catch (err) {
-    dispatch({ type: UNDERGRADUATE_ERROR, payload: err.response.data.error[0] });
-  }
-};
+  // Add a undergraduate
+  const addUndergraduate = async (formData) => {
+    try {
+      console.log(formData);
+      const { data } = await axios.post(
+        "http://localhost:5000/api/undergraduates/create",
+        formData
+      );
 
-// Add a undergraduate
-const addUndergraduate = async (formData) => {
-  try {
-   
-    console.log(formData);
-    const { data } = await axios.post(
-      "http://localhost:5000/api/undergraduates/create",
-      formData
-    );
+      dispatch({ type: UNDERGRADUATE_ADD, payload: data });
+    } catch (err) {
+      dispatch({
+        type: UNDERGRADUATE_ERROR,
+        payload: err.response.data.error[0],
+      });
+    }
+  };
 
-    dispatch({ type: UNDERGRADUATE_ADD, payload: data });
-  } catch (err) {
-    dispatch({ type: UNDERGRADUATE_ERROR, payload: err.response.data.error[0] });
-  }
-};
+  // Edit a undergraduate
+  const editUndergraduate = async (undId, formData) => {
+    try {
+      const config = {
+        "Content-Type": "application/json",
+      };
+      const { data } = await axios.put(
+        `http://localhost:5000/api/undergraduates/update/${undId}`,
+        formData,
+        config
+      );
 
-// Edit a undergraduate
-const editUndergraduate = async (undId, formData) => {
-  try {
-    const config = {
-      "Content-Type": "application/json",
-    };
-    const { data } = await axios.put(
-      `http://localhost:5000/api/undergraduates/update/${undId}`,
-      formData,
-      config
-    );
+      dispatch({
+        type: UNDERGRADUATE_EDIT,
+        payload: { id: undId, updatedUndergraduate: data },
+      });
+    } catch (err) {
+      dispatch({
+        type: UNDERGRADUATE_ERROR,
+        payload: err.response.data.error[0],
+      });
+    }
+  };
 
-    dispatch({
-      type: UNDERGRADUATE_EDIT,
-      payload: { id: undId, updatedUndergraduate: data },
-    });
-  } catch (err) {
-    dispatch({ type: UNDERGRADUATE_ERROR, payload: err.response.data.error[0] });
-  }
-};
+  // Delete undergraduate
+  const deleteUndergraduate = async (undId) => {
+    try {
+      await axios.delete(`/api/undergraduates/${undId}`);
 
-// Delete undergraduate
-const deleteUndergraduate = async (undId) => {
-  try {
-    await axios.delete(`/api/undergraduates/${undId}`);
-
-    dispatch({ type: UNDERGRADUATE_DELETE, payload: undId });
-  } catch (err) {
-    dispatch({ type: UNDERGRADUATE_ERROR, payload: err.response.data.error[0] });
-  }
-};
+      dispatch({ type: UNDERGRADUATE_DELETE, payload: undId });
+    } catch (err) {
+      dispatch({
+        type: UNDERGRADUATE_ERROR,
+        payload: err.response.data.error[0],
+      });
+    }
+  };
 
   return (
     <AppContext.Provider
