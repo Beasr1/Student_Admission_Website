@@ -1,11 +1,10 @@
-import "./Appform.css";
+import "../AppForm/Appform.css"
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { First } from "react-bootstrap/esm/PageItem";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
-function Appform() {
-  const { addStudent } = useAppContext();
+import { BsWindowSidebar } from "react-icons/bs";
+function StudentEdit() {
+  const { editStudent, student } = useAppContext();
   const date = new Date();
   const year = date.getFullYear();
   let day = date.getDay();
@@ -20,31 +19,32 @@ function Appform() {
   const [me, setme] = useState("4");
 
   const formDetails = {
-    AdmissionYear: date.getFullYear(),
-    fullname: "",
-    gender: "gender",
-    BirthPlace: "",
-    State: "",
-    City: "",
-    ContactAddress: "",
-    Dob: year + "-" + month + "-" + day,
-    ContactNo: "",
-    email: "",
-    percentile: "",
-    prefBranch: ["1", "2", "3", "4"],
-    uploadFiles: "dega",
+    AdmissionYear: student.AdmissionYear,
+    fullname: student.fullname,
+    gender:student.gender ,
+    BirthPlace:student.BirthPlace,
+    State:student.State,
+    City:student.City,
+    ContactAddress:student.ContactAddress,
+    Dob: student.Dob,
+    ContactNo:student.ContactNo,
+    email:student.email,
+    percentile:student.percentile ,
+    prefBranch:student.prefBranch,
+    uploadFiles: student.uploadFiles,
   };
-
+  const navigate = useNavigate();
   const [isFilled, setisFilled] = useState(true);
   const [details, setdetails] = useState(formDetails);
-  const handleSubmit = async (event) => {
+  const handleEdit = async (event) => {
     event.preventDefault();
     setisFilled(true);
     setdetails((details) => ({
       ...details,
       prefBranch: [cse, ece, cce, me],
     }));
-    addStudent(details);
+    editStudent(student._id, details);
+    navigate("/")
   };
 
   //changing field will make changes in the details object...
@@ -115,7 +115,7 @@ function Appform() {
     <div className="form-container-container">
       <div className="form-container">
         <div className="form-background">
-          <h1 className="title">Registration Form</h1>
+          <h1 className="title">Update Detail Form</h1>
           <form action="" id="register-form">
             <div className="form-features">
               <input
@@ -183,6 +183,7 @@ function Appform() {
                 className="form-box"
               />
             </div>
+
             <div className="form-features">
               <input
                 type="number"
@@ -223,16 +224,6 @@ function Appform() {
                 className="form-box"
               />
             </div>
-            <div className="form-features">
-              <input
-                type="text"
-                name="uploadFiles"
-                id="uploadFiles"
-                onChange={handleChange}
-                placeholder="Enter drive link for documents"
-                className="form-box"
-              />
-            </div>
             <label htmlFor="Dob" style={{ display: "inline" }}>
               Dob:
             </label>
@@ -245,7 +236,6 @@ function Appform() {
               required
               className="form-box"
               style={{ display: "inline" }}
-              max="2004-01-01"
             />
             <div className="form-features form-branch">
               <div style={{ paddingTop: "22px" }}>Branch Preference:</div>
@@ -308,17 +298,8 @@ function Appform() {
                 </div>
               </div>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "2rem",
-              }}
-            >
-              <button type="submit" className="submit" onClick={handleSubmit}>
-                Submit
-              </button>
-            </div>
+             <button type="submit" className="submit" onClick={handleEdit}>
+   SAVE CHANGES </button>
           </form>
         </div>
       </div>
@@ -326,4 +307,4 @@ function Appform() {
   );
 }
 
-export default Appform;
+export default StudentEdit;

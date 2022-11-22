@@ -70,7 +70,7 @@ const StudentDetails = () => {
           </p>
           <p className="card-text">
             <strong>Percentile:</strong>
-            {prefBranch.map((element) => ({ element }))}
+            {prefBranch.map((element) => ( element ))}
           </p>
           <p className="card-text">
             <strong>File Link:</strong> {uploadFiles}
