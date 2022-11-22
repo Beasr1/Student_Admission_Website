@@ -197,7 +197,6 @@ function Appform() {
                 className="form-box"
               />
             </div>
-
             <div className="form-features">
               <input
                 type="number"
@@ -238,6 +237,16 @@ function Appform() {
                 className="form-box"
               />
             </div>
+            <div className="form-features">
+              <input
+                type="text"
+                name="uploadFiles"
+                id="uploadFiles"
+                onChange={handleChange}
+                placeholder="Enter drive link for documents"
+                className="form-box"
+              />
+            </div>
             <label htmlFor="Dob" style={{ display: "inline" }}>
               Dob:
             </label>
@@ -250,6 +259,7 @@ function Appform() {
               required
               className="form-box"
               style={{ display: "inline" }}
+              max="2004-01-01"
             />
             <div className="form-features form-branch">
               <div style={{ paddingTop: "22px" }}>Branch Preference:</div>
@@ -311,6 +321,17 @@ function Appform() {
                   </select>
                 </div>
               </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "2rem",
+              }}
+            >
+              <button type="submit" className="submit" onClick={handleSubmit}>
+                Submit
+              </button>
             </div>
           </form>
         </div>
