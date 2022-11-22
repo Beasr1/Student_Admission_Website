@@ -25,6 +25,9 @@ body{
     height: 4rem;
     resize: none;
 }
+#pref{
+    margin-top:0;
+}
 #Dob{
     padding-top: 0;
 }
@@ -96,11 +99,13 @@ form label{
     height: 240px;
 }
 .submit{
-    font-size: larger;
+    font-size: small;
     border-radius: 20px;
-    background-color: cadetblue;
-    width: 260px;
+    background-color: rgb(35, 61, 246);
+    width: 140px;
+    padding:10px;
     border-color: transparent;
+    color: white;
     
 }
 #Dob{
@@ -122,7 +127,7 @@ form label{
         align-items: center;
         background-color: #d2e5fe;
         padding-top: 2rem;
-        height:800px
+        height:1000px
 }
 .form-branch{
     display: inline-flex;

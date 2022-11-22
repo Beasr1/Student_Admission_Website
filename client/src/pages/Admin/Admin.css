@@ -1,0 +1,9 @@
+.branch-wise-cards{
+    display: flex;
+    justify-content: space-around;
+}
+.branch-box{
+    height: 400px;
+    width: 400px;
+    border-radius: 1px solid brown;
+}

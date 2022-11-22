@@ -27,6 +27,7 @@ import Gallery from "./pages/Gallery/Gallery";
 import DemoCarousel from "./components/Carousel/Carousel";
 import About from "./pages/About/About";
 import StudentEdit from "./components/Admin/StudentEdit";
+import Admin from "./pages/Admin/Admin";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
@@ -59,6 +60,7 @@ const App = () => {
     <div className="lol">
       <Routes>
         <Route path="/login" exact element={<Login />} />
+        <Route path="/Admin" exact element={<Admin />} />
         <Route path="/signup" exact element={<Signup />} />
       </Routes>
       {adminstrator === "admin" ? (

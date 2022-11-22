@@ -183,7 +183,6 @@ function Appform() {
                 className="form-box"
               />
             </div>
-
             <div className="form-features">
               <input
                 type="number"
@@ -224,6 +223,16 @@ function Appform() {
                 className="form-box"
               />
             </div>
+            <div className="form-features">
+              <input
+                type="text"
+                name="uploadFiles"
+                id="uploadFiles"
+                onChange={handleChange}
+                placeholder="Enter drive link for documents"
+                className="form-box"
+              />
+            </div>
             <label htmlFor="Dob" style={{ display: "inline" }}>
               Dob:
             </label>
@@ -236,6 +245,7 @@ function Appform() {
               required
               className="form-box"
               style={{ display: "inline" }}
+              max="2004-01-01"
             />
             <div className="form-features form-branch">
               <div style={{ paddingTop: "22px" }}>Branch Preference:</div>
@@ -298,8 +308,17 @@ function Appform() {
                 </div>
               </div>
             </div>
-             <button type="submit" className="submit" onClick={handleSubmit}>
-   SUBMIT </button>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "2rem",
+              }}
+            >
+              <button type="submit" className="submit" onClick={handleSubmit}>
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -308,174 +327,3 @@ function Appform() {
 }
 
 export default Appform;
-
-{
-  /* <div className="form-header">
-<span>Fill Your Form Details</span>
-<div className="line"></div>
-<ul className="form-options">
-  <Link to="">Back</Link>
-  <Link to="/">Logout</Link>
-</ul>
-</div>
-<span className="Pi"></span>
-<form>
-<div className="partitions">
-  <div className="partition-1">
-    <span>Admission Year: {formDetails.AdmissionYear}</span>
-    <br />
-    <label htmlFor="fullname"></label> <br />
-    <input
-      type="text"
-      name="fullname"
-      id="fullname"
-      value={details.fullname}
-      onChange={handleChange}
-      placeholder="Enter Your Full Name"
-    />
-    <br />
-    <label htmlFor="BirthPlace"></label> <br />
-    <input
-      type="text"
-      name="BirthPlace"
-      id="BirthPlace"
-      value={details.BirthPlace}
-      onChange={handleChange}
-      placeholder="Enter Your Place Of Birth"
-      required
-    />
-    <br />
-    <label htmlFor="email"></label> <br />
-    <input
-      type="text"
-      name="email"
-      id="email"
-      value={details.email}
-      onChange={handleChange}
-      placeholder="Enter Your Place Of Birth"
-      required
-    />
-    <br />
-    <label htmlFor="gender" className="gender"></label>
-    <select
-      value={details.gender}
-      name="gender"
-      id="gender"
-      onChange={handleChange}
-      required
-    >
-      <option value="m">Male</option>
-      <option value="f">Female</option>
-      <option value="gender">Gender</option>
-    </select>
-  </div>
-  <input
-    type="text"
-    name="State"
-    id="State"
-    value={details.State}
-    onChange={handleChange}
-    placeholder="Enter State"
-    required
-  />
-  <br />
-  <input
-    type="text"
-    name="City"
-    id="City"
-    value={details.City}
-    onChange={handleChange}
-    placeholder="Enter City"
-    required
-  />
-  <br />
-  <div className="vertical-line"></div>
-  <div className="partition-2">
-    <label htmlFor="ContactAddress"></label>
-    <br />
-    <textarea
-      name="ContactAddress"
-      id="ContactAddress"
-      value={details.ContactAddress}
-      placeholder="enter your home address"
-      onChange={handleChange}
-      rows={4}
-      cols={50}
-      maxLength={100}
-      required
-    />
-
-    <br />
-    <input
-      type="date"
-      id="Dob"
-      name="Dob"
-      value={details.Dob}
-      onChange={handleChange}
-      required
-    />
-    <br />
-    <label htmlFor="contact-no" className="contact-no"></label>
-    <input
-      type="tel"
-      name="ContactNo"
-      id="ContactNo"
-      value={details.ContactNo}
-      placeholder="XXXXXXXXXX"
-      pattern="[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{3}"
-      required
-      onChange={handleChange}
-    />
-    <br />
-
-    <label htmlFor="percentile" className="percentile"></label>
-    <input
-      type="number"
-      name="percentile"
-      step="any"
-      id="percentile"
-      value={details.percentile}
-      placeholder="enter percentile"
-      required
-      onChange={handleChange}
-    />
-    <br />
-    <label htmlFor="pref">CSE</label>
-    <select name="pref" id="pref" value={cse} onChange={handlecse}>
-      {prefBranch.map((element) => (
-        <option value={element}>{element}</option>
-      ))}
-    </select>
-    <label htmlFor="pref">ECE</label>
-    <select name="pref" id="pref" value={ece} onChange={handleece}>
-      {prefBranch.map((element) => (
-        <option value={element}>{element}</option>
-      ))}
-    </select>
-    <label htmlFor="pref">ME</label>
-    <select name="pref" id="pref" value={me} onChange={handleme}>
-      {prefBranch.map((element) => (
-        <option value={element}>{element}</option>
-      ))}
-    </select>
-    <label htmlFor="pref">CCE</label>
-    <select name="pref" id="pref" value={cce} onChange={handlecce}>
-      {prefBranch.map((element) => (
-        <option value={element}>{element}</option>
-      ))}
-    </select>
-    {/* <label htmlFor="uploadFiles">Upload Documents:</label>
-    <input
-      type="file"
-      name="uploadFiles"
-      id="uploadFiles"
-      multiple
-      onChange={handleChange}
-    /> */
-}
-//   </div>
-// </div>
-// <button type="submit" className="submit" onClick={handleSubmit}>
-//   SUBMIT
-// </button>
-// </form> */}
