@@ -13,7 +13,9 @@ const StudentDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const{ AdmissionYear,
+  const {
+    _id,
+    AdmissionYear,
     fullname,
     gender,
     BirthPlace,
@@ -25,7 +27,8 @@ const StudentDetails = () => {
     email,
     percentile,
     prefBranch,
-    uploadFiles } = student;
+    uploadFiles,
+  } = student;
 
   if (!student || loading) return <h2>Loading</h2>;
 
@@ -38,20 +41,39 @@ const StudentDetails = () => {
             className="card-title"
             style={{ color: "brown", textTransform: "uppercase" }}
           >
-            {firstname} {lastname}
+            {fullname}
           </h4>
           <hr />
           <p className="card-text">
-            <strong>Age:</strong> {age}
+            <strong>Dob:</strong> {Dob}
           </p>
           <p className="card-text">
-            <strong>Major:</strong> {major}
+            <strong>Gender:</strong> {gender}
+          </p>
+          <p className="card-text">
+            <strong>Birth Place:</strong> {BirthPlace}
+          </p>
+          <p className="card-text">
+            <strong>State:</strong> {State}
+          </p>
+          <p className="card-text">
+            <strong>City:</strong> {City}
+          </p>
+          <p className="card-text">
+            <strong>Address:</strong> {ContactAddress}
+          </p>
+          <p className="card-text">
+            <strong>Contact:</strong> {ContactNo}
           </p>
           <p className="card-text">
             <strong>Email:</strong> {email}
           </p>
           <p className="card-text">
-            <strong>Phone:</strong> {phone}
+            <strong>Percentile:</strong>
+            {prefBranch.map((element) => ({ element }))}
+          </p>
+          <p className="card-text">
+            <strong>File Link:</strong> {uploadFiles}
           </p>
           <hr />
           <Link

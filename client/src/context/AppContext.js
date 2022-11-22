@@ -103,7 +103,9 @@ const AppProvider = ({ children }) => {
   // Get a single student
   const getStudent = async (stuId) => {
     try {
-      const { data } = await axios.get(`/api/students/${stuId}`);
+      const { data } = await axios.get(
+        `http://localhost:5000/api/students/${stuId}`
+      );
 
       dispatch({ type: STUDENT_GET, payload: data });
     } catch (err) {
@@ -134,7 +136,7 @@ const AppProvider = ({ children }) => {
         "Content-Type": "application/json",
       };
       const { data } = await axios.put(
-        `/api/students/update/${stuId}`,
+        `http://localhost:5000/api/students/update/${stuId}`,
         formData,
         config
       );
