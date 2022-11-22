@@ -118,7 +118,7 @@ const AppProvider = ({ children }) => {
         "Content-Type": "application/json",
       };
       const { data } = await axios.post(
-        "/api/students/create",
+        "http://localhost:5000/api/students/create",
         formData,
         config
       );

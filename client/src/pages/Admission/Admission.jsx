@@ -1,8 +1,9 @@
 import "./Admission.css";
 import React from "react";
-function Admission() {
+function Admission({logged}) {
   const onclick = () => {
-    window.location = "/login";
+    if(logged) window.location="/fillform"
+    else window.location = "/login";
   };
   return (
     <div id="parentcontainer">

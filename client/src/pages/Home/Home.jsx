@@ -9,7 +9,7 @@ import lnmlogo from "../../assets/lnm.png";
 import { BsFacebook } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
-function Home() {
+function Home({logged}) {
   const [isActive, setisActive] = useState(false);
   const [isActive1, setisActive1] = useState(false);
   const noticeData = [
@@ -191,7 +191,8 @@ function Home() {
         </div>
         <div className="home-admission">
           <h3 id="lnm-admission">
-            <Link to="/login">APPLY FOR UG ADMISSION!</Link>
+            {!logged && <Link to="/login">APPLY FOR UG ADMISSION!</Link>}
+            {logged && <Link to="/fillform">APPLY FOR UG ADMISSION logged!</Link>}
           </h3>
         </div>
       </div>

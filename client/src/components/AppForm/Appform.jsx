@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { First } from "react-bootstrap/esm/PageItem";
+import { useAppContext } from "../../context/AppContext";
 function Appform() {
+  const {  addStudent } = useAppContext();
   const date = new Date();
   const year = date.getFullYear();
   let day = date.getDay();
@@ -30,7 +32,7 @@ function Appform() {
     email: "",
     percentile: "",
     prefBranch: ["1", "2", "3", "4"],
-    email: "",
+    uploadFiles:"dega"
   };
 
   const [isFilled, setisFilled] = useState(true);
@@ -51,7 +53,8 @@ function Appform() {
     //     method: 'POST',
     //     body: details
     // })
-    await axios.post("http://localhost:5000/api/students/submit", details);
+    // await axios.post("http://localhost:5000/api/students/create", details);
+    addStudent(details)
     //    await fetch('http://localhost:5000/api/students/submit', {
     //     method: 'POST',
     //     body: details
@@ -72,7 +75,6 @@ function Appform() {
       ...details,
       ...updatedValue,
     }));
-    console.log(details);
   };
   const handlecse = (e) => {
     console.log(e.target.value, ece);
