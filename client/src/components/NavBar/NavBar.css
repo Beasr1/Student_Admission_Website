@@ -31,6 +31,12 @@
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
   }
+  #logout-nav{
+    background-color: #333;
+    color:white;
+    border:transparent;
+    
+  }
   
   /* Add a red background color to Nav links on hover */
   .Nav a:hover, .DropDown:hover .dropbtn {

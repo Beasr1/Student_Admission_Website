@@ -21,14 +21,19 @@ function NavbarHome({ logged }) {
           <Link to="/Placement">Placement</Link>
           <Link to="/life">Life At Lnmiit</Link>
         </div>
-        {/* <button onClick={handleLoggin}>Login</button> */}
       </div>
       {!logged && (
         <Link to="/login">
-          <button>Login</button>
+          <button id="logout-nav">Login</button>
         </Link>
       )}
-      {logged && <button onClick={handleLogout}>Logout</button>}
+      {logged && (
+        <Link>
+          <button id="logout-nav" onClick={handleLogout}>
+            Logout
+          </button>
+        </Link>
+      )}
     </div>
   );
 }
