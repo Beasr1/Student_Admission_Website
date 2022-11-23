@@ -1,9 +1,35 @@
 .branch-wise-cards{
     display: flex;
+    margin-top: 2.5rem;
     justify-content: space-around;
+    align-items: center;
 }
+
+
 .branch-box{
     height: 400px;
     width: 400px;
     border-radius: 1px solid brown;
+}
+#admin-title{
+    text-align: center;
+}
+.admin-form-container{
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    padding:2rem;
+    
+
+}
+.branch-2{
+    margin-top:1rem;
+}
+.admin-form-background{
+    background-color: #d2e5fe;
+    display: flex;
+    justify-content: center;
+    padding:2rem;
+    height: 800px;
+
 }

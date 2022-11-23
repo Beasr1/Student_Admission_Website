@@ -29,6 +29,7 @@ import About from "./pages/About/About";
 import StudentEdit from "./components/Admin/StudentEdit";
 import Admin from "./pages/Admin/Admin";
 import Track from "./pages/TrackApplication/Track";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
@@ -67,7 +68,6 @@ const App = () => {
       {adminstrator === "admin" ? (
         <>
           <Navbar logged={logged} />
-
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
@@ -75,8 +75,8 @@ const App = () => {
             <Route path="/Admin" exact element={<Admin />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/fillform" element={<Appform />} />
-            <Route path="/students/:id" element={<StudentDetails/>}/>
-            <Route path="/students/edit/:id" element={<StudentEdit/>}/>
+            <Route path="/students/:id" element={<StudentDetails />} />
+            <Route path="/students/edit/:id" element={<StudentEdit />} />
           </Routes>
         </>
       ) : (
@@ -119,6 +119,7 @@ const App = () => {
             <Route path="/ann" exact element={<Announcement />} />
             <Route path="/cc" exact element={<DemoCarousel />} />
           </Routes>
+          <Footer />
         </>
       )}
     </div>

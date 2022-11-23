@@ -37,13 +37,14 @@ function Admin() {
     });
   };
   return (
-    <div>
+    <div className="admin-form-background">
       <div className="admin-form-container">
         <h1 id="admin-title">Branch-wise percentile criteria.</h1>
+        <hr id="admin-line" />
         <div className="branch-wise-cards">
           <h3>Enter Eligibility Percentile For:</h3>
           <form action="">
-            <div className="branch-1">
+            <div className="branch-2">
               <label htmlFor="cse">CSE:</label>
               <input
                 type="number"
@@ -51,6 +52,7 @@ function Admin() {
                 placeholder="enter percentile"
                 value={eligible.cse}
                 onChange={handlecse}
+                className="form-box"
               />
             </div>
             <div className="branch-2">
@@ -61,6 +63,7 @@ function Admin() {
                 value={eligible.cce}
                 placeholder="enter percentile"
                 onChange={handlecce}
+                className="form-box"
               />
             </div>
             <div className="branch-2">
@@ -71,6 +74,7 @@ function Admin() {
                 value={eligible.ece}
                 placeholder="enter percentile"
                 onChange={handleece}
+                className="form-box"
               />
             </div>
             <div className="branch-2">
@@ -81,12 +85,21 @@ function Admin() {
                 value={eligible.me}
                 placeholder="enter percentile"
                 onChange={handleme}
+                className="form-box"
               />
             </div>
-            <button type="submit" className="submit" onClick={handleSubmit}>
-              Submit
-            </button>
           </form>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "4rem",
+          }}
+        >
+          <button type="submit" className="submit" onClick={handleSubmit}>
+            Submit
+          </button>
         </div>
       </div>
     </div>
