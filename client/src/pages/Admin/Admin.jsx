@@ -1,6 +1,7 @@
 import "./Admin.css";
 import { useState } from "react";
 import axios from "axios";
+import StudentShortlist from "../../components/Admin/StudentShortlist";
 function Admin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -88,6 +89,7 @@ function Admin() {
                 className="form-box"
               />
             </div>
+            <StudentShortlist list={eligible} />
           </form>
         </div>
         <div
@@ -96,11 +98,7 @@ function Admin() {
             justifyContent: "center",
             marginTop: "4rem",
           }}
-        >
-          <button type="submit" className="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+        ></div>
       </div>
     </div>
   );

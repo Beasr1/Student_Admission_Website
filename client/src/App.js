@@ -33,7 +33,7 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState({ user: false, admin: false });
   const user = localStorage.getItem("token");
   const admin = localStorage.getItem("user");
   const password = localStorage.getItem("pass");
@@ -43,46 +43,54 @@ const App = () => {
     getStudents();
     getMajors();
     console.log(user);
-    if (user) setLogged(true);
+    if (user) setLogged(true, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (admin === "a@gmail.com" && password === "Naman@123") {
+    if (admin === "a@gmail.com" && password === "Naman@1234") {
       console.log("admin");
       setAdministrator("admin");
+      setLogged(false, true);
     } else {
       setAdministrator("user");
+      setLogged(true, false);
     }
 
     if (!admin || !user) {
       setAdministrator("none");
-      setLogged(false);
+      setLogged(false, false);
     }
   }, []);
 
   return (
     <div className="lol">
       <Routes>
-        <Route path="/login" exact element={<Login />} />
+        {!logged.user && !logged.admin && (
+          <Route path="/login" exact element={<Login />} />
+        )}
 
-        <Route path="/signup" exact element={<Signup />} />
+        {!logged.user && !logged.admin && (
+          <Route path="/signup" exact element={<Signup />} />
+        )}
       </Routes>
       {adminstrator === "admin" ? (
         <>
-          <Navbar logged={logged} />
+          {logged.admin && <Navbar logged={logged.admin} />}
+
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
             {!user && <Route exact path="/" element={<Login />} />}
             <Route path="/Admin" exact element={<Admin />} />
-            <Route path="/login" exact element={<Login />} />
+            <Route path="/loginadmin" exact element={<Login />} />
             <Route path="/fillform" element={<Appform />} />
             <Route path="/students/:id" element={<StudentDetails />} />
             <Route path="/students/edit/:id" element={<StudentEdit />} />
+            <Route path="/Admin" element={<Admin />} />
           </Routes>
         </>
       ) : (
         // client
         <>
-          <NavbarHome logged={logged} />
+          {logged.user && <NavbarHome logged={logged.user} />}
           <Routes>
             <Route exact path="/" element={<Home logged={logged} />} />
             {user && <Route exact path="/about" element={<About />} />}
