@@ -32,7 +32,7 @@ import Track from "./pages/TrackApplication/Track";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const { getStudents, getMajors } = useAppContext();
+  const { getStudents } = useAppContext();
   const [logged, setLogged] = useState({
     student: false,
     admin: false,
@@ -45,7 +45,6 @@ const App = () => {
 
   useEffect(() => {
     getStudents();
-    getMajors();
     // console.log(user);
     // if (user) setLogged(true, false, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +81,6 @@ const App = () => {
       </Routes>
       {adminstrator === "admin" ? (
         <>
-          {<Navbar logged={logged.admin} />}
 
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}

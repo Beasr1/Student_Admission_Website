@@ -33,14 +33,14 @@
     color: red;
 }
 #carouselLnm{
-    width: 70%;
+    width: 90vw;
 }
 .home-mid-content{
     display: flex;
     margin-top: 1rem;
 }
 #notice-home{
-    width: 30%;
+    width: 30vw;
     margin-right:1rem;
 
 }
