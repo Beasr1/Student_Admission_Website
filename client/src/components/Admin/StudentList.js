@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "./StudentList.css"
 import { useAppContext } from "../../context/AppContext";
 import StudentItem from "./StudentItem";
 
@@ -19,16 +19,16 @@ const StudentList = () => {
   };
   return (
     <div style={{ marginTop: "3rem" }}>
-      <h3 style={{ marginBottom: "2rem", color: "green" }}>List of Students</h3>
+      <h3 style={{ margin: "2rem", color: "black" }}>List of Students</h3>
       <Link
         to="/fillform"
-        className="btn btn-success"
-        style={{ marginBottom: "2rem" }}
+        className="submit"
+        style={{ margin: "2rem",textDecoration:"none" }}
       >
         Create a New Student
       </Link>
 
-      <table className="table  table-hover table-success">
+      <table className="table  table-hover table-style">
         <thead className="thead-dark">
           <tr>
             <th>Full Name</th>

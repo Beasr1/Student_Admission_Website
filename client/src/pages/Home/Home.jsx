@@ -10,7 +10,7 @@ import { BsFacebook } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 function Home({ logged }) {
-  const [isActive, setisActive] = useState(false);
+  const [isActive, setisActive] = useState(true);
   const [isActive1, setisActive1] = useState(false);
   const noticeData = [
     {
