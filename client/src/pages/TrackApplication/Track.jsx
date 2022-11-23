@@ -13,6 +13,8 @@ function Track() {
       return (
         <tr className="eligible-data">
           <td>{undergraduate.personalDetails.fullname}</td>
+          <td>{undergraduate.roll}</td>
+          <td>{undergraduate.major}</td>
           <td>{undergraduate.personalDetails.email}</td>
           <td>{undergraduate.personalDetails.percentile}</td>
         </tr>
@@ -28,6 +30,8 @@ function Track() {
           <thead>
             <tr className="student-list-table">
               <th>Full Name</th>
+              <th>Roll Numbeer</th>
+              <th>Major</th>
               <th>Email</th>
               <th>Percentile</th>
             </tr>

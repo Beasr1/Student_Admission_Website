@@ -20,6 +20,7 @@ const undergraduateSchema = mongoose.Schema(
     },
 
     major: { type: String, required: true },
+    roll: { type: String, required: true },
   },
   { timestamps: true }
 );

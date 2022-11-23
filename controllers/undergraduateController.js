@@ -2,8 +2,7 @@ const Undergraduate = require("../models/Undergraduates");
 
 const getUndergraduates = async (req, res) => {
   try {
-    const undergraduates = await Undergraduate.find()
-      .sort({ createdAt: -1 });
+    const undergraduates = await Undergraduate.find().sort({ createdAt: -1 });
 
     res.json(undergraduates);
   } catch (err) {
@@ -27,11 +26,13 @@ const getUndergraduate = async (req, res) => {
 
 const addUndergraduate = async (req, res) => {
   console.log(req.body);
-  const { personalDetails,major } = req.body;
+  const { personalDetails, major, roll } = req.body;
 
   try {
     const undergraduate = await Undergraduate.create({
-      personalDetails,major
+      personalDetails,
+      major,
+      roll,
     });
 
     res.status(201).json(undergraduate);
@@ -46,14 +47,13 @@ const addUndergraduate = async (req, res) => {
   }
 };
 
-
 const editUndergraduate = async (req, res) => {
-  const { personalDetails,major } = req.body;
+  const { personalDetails, major, roll } = req.body;
 
   try {
     const undergraduate = await Undergraduate.findByIdAndUpdate(
       req.params.id,
-      { personalDetails,major },
+      { personalDetails, major, roll },
       { new: true }
     );
 

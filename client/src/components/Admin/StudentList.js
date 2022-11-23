@@ -10,11 +10,9 @@ const StudentList = () => {
   useEffect(() => {
     getStudents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    
   }, []);
 
   const studentList = () => {
-
     return students.map((curStudent) => {
       return <StudentItem student={curStudent} key={curStudent._id} />;
     });

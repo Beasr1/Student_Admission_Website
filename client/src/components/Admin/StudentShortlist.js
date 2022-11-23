@@ -1,57 +1,74 @@
 import React from "react";
 import { useAppContext } from "../../context/AppContext";
 import { useEffect } from "react";
-const StudentShortlist = ({list}) => {
+const StudentShortlist = ({ list }) => {
   const { students, getStudents } = useAppContext();
-  const {  addUndergraduate } = useAppContext();
+  const { addUndergraduate } = useAppContext();
+  const [number, setNumber] = {
+    cse: 0,
+    ece: 0,
+    cce: 0,
+    me: 0,
+  };
 
   useEffect(() => {
     getStudents();
-    
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const shortlist = (event) => {
     event.preventDefault();
     console.log(list);
     students.map((curStudent) => {
-      console.log(curStudent)
+      console.log(curStudent);
       const pref = curStudent.prefBranch;
-      console.log(pref)
+      console.log(pref);
       const obj = { str: "", pre: 10 };
       for (let i = 1; i <= 4; i++) {
         if (i == 1) {
-          if (curStudent.percentile > list.cse && pref[i-1] < obj.pre) {
+          if (curStudent.percentile > list.cse && pref[i - 1] < obj.pre) {
             obj.str = "cse";
-            obj.pre = pref[i-1];
+            obj.pre = pref[i - 1];
           }
         } else if (i == 2) {
-          if (curStudent.percentile > list.cce && pref[i-1] < obj.pre) {
+          if (curStudent.percentile > list.cce && pref[i - 1] < obj.pre) {
             obj.str = "cce";
-            obj.pre = pref[i-1];
+            obj.pre = pref[i - 1];
           }
         } else if (i == 3) {
-          if (curStudent.percentile > list.ece && pref[i-1] < obj.pre) {
+          if (curStudent.percentile > list.ece && pref[i - 1] < obj.pre) {
             obj.str = "ece";
-            obj.pre = pref[i-1];
+            obj.pre = pref[i - 1];
           }
         } else {
-          if (curStudent.percentile > list.me && pref[i-1] < obj.pre) {
+          if (curStudent.percentile > list.me && pref[i - 1] < obj.pre) {
             obj.str = "me";
-            obj.pre = pref[i-1];
+            obj.pre = pref[i - 1];
           }
         }
-        console.log(obj.str)
-        if(!(obj.str==="")){
+        console.log(obj.str);
+        if (!(obj.str === "")) {
+          let num = "";
+          if (obj.str === "cse") {
+            num = number.cse;
+          } else if (obj.str === "ece") {
+            num = number.cse;
+          } else if (obj.str === "cce") {
+            num = number.cse;
+          } else {
+            num = number.cse;
+          }
+          const rolln =
+            curStudent.personalDetails.AdmissionYear + obj.major + num;
           const ug = {
-            personalDetails:curStudent,
+            personalDetails: curStudent,
             major: `${obj.str}`,
+            roll: rolln,
           };
           addUndergraduate(ug);
         }
-        
       }
-    })
-    
+    });
   };
   return (
     <>

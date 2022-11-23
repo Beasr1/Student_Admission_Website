@@ -45,11 +45,10 @@ const App = () => {
 
   useEffect(() => {
     getStudents();
-    getMajors();
     // console.log(user);
     // if (user) setLogged(true, false, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (admin === "a@gmail.com" && password === "Naman@123") {
+    if (admin === "a@gmail.com" && password === "Naman@1234") {
       console.log("admin");
       setAdministrator("admin");
       setLogged({ student: false, admin: true, person: false });
