@@ -3,10 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import StudentShortlist from "../../components/Admin/StudentShortlist";
 function Admin() {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await axios.post("http://localhost:5000/api/eligible", eligible);
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   await axios.post("http://localhost:5000/api/eligible", eligible);
+  // };
   const [eligible, seteligible] = useState({
     cse: "",
     ece: "",

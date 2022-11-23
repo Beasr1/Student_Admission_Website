@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import { useEffect } from "react";
 const StudentShortlist = ({ list }) => {
   const { students, getStudents } = useAppContext();
   const { addUndergraduate } = useAppContext();
-  const [number, setNumber] = {
+  const [numbe, setNumbe] = useState({
     cse: 0,
     ece: 0,
     cce: 0,
     me: 0,
-  };
+  });
 
   useEffect(() => {
     getStudents();
@@ -50,16 +50,27 @@ const StudentShortlist = ({ list }) => {
         if (!(obj.str === "")) {
           let num = "";
           if (obj.str === "cse") {
-            num = number.cse;
+            num = numbe.cse;
+            setNumbe((prevState) => {
+              return { ...prevState, cse: prevState.cse + 1 };
+            });
           } else if (obj.str === "ece") {
-            num = number.cse;
+            num = numbe.cse;
+            setNumbe((prevState) => {
+              return { ...prevState, ece: prevState.cse + 1 };
+            });
           } else if (obj.str === "cce") {
-            num = number.cse;
+            num = numbe.cse;
+            setNumbe((prevState) => {
+              return { ...prevState, cce: prevState.cse + 1 };
+            });
           } else {
-            num = number.cse;
+            num = numbe.cse;
+            setNumbe((prevState) => {
+              return { ...prevState, me: prevState.cse + 1 };
+            });
           }
-          const rolln =
-            curStudent.personalDetails.AdmissionYear + obj.major + num;
+          const rolln = `${curStudent.AdmissionYear}` + `${obj.str}` + `${num}`;
           const ug = {
             personalDetails: curStudent,
             major: `${obj.str}`,
@@ -67,6 +78,7 @@ const StudentShortlist = ({ list }) => {
           };
           addUndergraduate(ug);
         }
+        return null;
       }
     });
   };

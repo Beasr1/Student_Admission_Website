@@ -81,7 +81,6 @@ const App = () => {
       </Routes>
       {adminstrator === "admin" ? (
         <>
-
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
@@ -100,7 +99,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home logged={logged} />} />
             {user && <Route exact path="/about" element={<About />} />}
-            {user && <Route path="/track" exact element={<Track />} />}
+
             {user && <Route exact path="/students/add" element={<Appform />} />}
 
             {user && (
@@ -126,6 +125,7 @@ const App = () => {
               exact
               element={<Admission logged={logged.student} />}
             />
+            <Route path="/track" exact element={<Track />} />
             <Route path="/life" exact element={<Life />} />
             <Route path="/Placement" exact element={<Placement />} />
             <Route path="/Timetable" exact element={<Timetable />} />
