@@ -53,9 +53,7 @@ function Appform() {
 
     let updatedValue = details;
     // console.log(item);
-    if (e.target.name === "uploadFiles")
-      updatedValue[`${item}`] = e.target.files;
-    else updatedValue[`${item}`] = e.target.value; //name key par yeh value set ho rahi
+    updatedValue[`${item}`] = e.target.value; //name key par yeh value set ho rahi
 
     setdetails((details) => ({
       ...details,

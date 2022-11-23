@@ -26,8 +26,8 @@ const Navbar = ({ logged }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/majors" className="nav-link">
-                Majors
+              <Link to="/Admin" className="nav-link">
+                Set Threshold Percentile
               </Link>
             </li>
             <li className="nav-item">

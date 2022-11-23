@@ -69,7 +69,10 @@ const StudentDetails = () => {
             <strong>Email:</strong> {email}
           </p>
           <p className="card-text">
-            <strong>Percentile:</strong>
+            <strong>Percentile:</strong> {percentile}
+          </p>
+          <p className="card-text">
+            <strong>PrefBranch:</strong>
             {prefBranch.map((element) => ( element ))}
           </p>
           <p className="card-text">
