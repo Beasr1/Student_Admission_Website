@@ -49,7 +49,7 @@ const App = () => {
     // console.log(user);
     // if (user) setLogged(true, false, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (admin === "a@gmail.com" && password === "Naman@1234") {
+    if (admin === "a@gmail.com" && password === "Naman@123") {
       console.log("admin");
       setAdministrator("admin");
       setLogged({ student: false, admin: true, person: false });
@@ -82,6 +82,8 @@ const App = () => {
       </Routes>
       {adminstrator === "admin" ? (
         <>
+          {<Navbar logged={logged.admin} />}
+
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}

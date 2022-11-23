@@ -9,11 +9,6 @@ import {
   STUDENT_EDIT,
   STUDENT_DELETE,
   STUDENT_ERROR,
-  MAJORS_GET,
-  MAJOR_ADD,
-  MAJOR_EDIT,
-  MAJOR_DELETE,
-  MAJOR_ERROR,
   UNDERGRADUATES_GET,
   UNDERGRADUATE_GET,
   UNDERGRADUATE_ADD,
@@ -27,8 +22,6 @@ const AppContext = createContext();
 const initialState = {
   students: [],
   student: {},
-  majors: [],
-  major: {},
   loading: true,
   error: {},
   undergraduate: {},
@@ -38,68 +31,11 @@ const initialState = {
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Get all majors
-  const getMajors = async () => {
-    try {
-      const { data } = await axios.get("/api/majors");
-
-      dispatch({ type: MAJORS_GET, payload: data });
-    } catch (err) {
-      dispatch({ type: MAJOR_ERROR, payload: err.message.error });
-    }
-  };
-
-  // Add a major
-  const addMajor = async (majorText) => {
-    try {
-      const config = {
-        "Content-Type": "application/json",
-      };
-      const { data } = await axios.post(
-        "/api/majors/create",
-        { majorText },
-        config
-      );
-
-      dispatch({ type: MAJOR_ADD, payload: data });
-    } catch (err) {
-      dispatch({ type: MAJOR_ERROR, payload: err.response.data.error[0] });
-    }
-  };
-
-  // Edit major
-  const editMajor = async (majId, majorText) => {
-    try {
-      const config = {
-        "Content-Type": "application/json",
-      };
-      const { data } = await axios.put(
-        `/api/majors/update/${majId}`,
-        { majorText },
-        config
-      );
-
-      dispatch({ type: MAJOR_EDIT, payload: { id: majId, major: data } });
-    } catch (err) {
-      dispatch({ type: MAJOR_ERROR, payload: err.response.data.error[0] });
-    }
-  };
-
-  // Delete major
-  const deleteMajor = async (majId) => {
-    try {
-      await axios.delete(`/api/majors/${majId}`);
-
-      dispatch({ type: MAJOR_DELETE, payload: majId });
-    } catch (err) {
-      dispatch({ type: MAJOR_ERROR, payload: err.response.data.error[0] });
-    }
-  };
 
   // Get all students
   const getStudents = async () => {
     try {
-      const { data } = await axios.get("/api/students");
+      const { data } = await axios.get("http://localhost:5000/api/students");
 
       dispatch({ type: STUDENTS_GET, payload: data });
     } catch (err) {
@@ -160,7 +96,7 @@ const AppProvider = ({ children }) => {
   // Delete student
   const deleteStudent = async (stuId) => {
     try {
-      await axios.delete(`/api/students/${stuId}`);
+      await axios.delete(`http://localhost:5000/api/students/${stuId}`);
 
       dispatch({ type: STUDENT_DELETE, payload: stuId });
     } catch (err) {
@@ -245,7 +181,7 @@ const AppProvider = ({ children }) => {
   // Delete undergraduate
   const deleteUndergraduate = async (undId) => {
     try {
-      await axios.delete(`/api/undergraduates/${undId}`);
+      await axios.delete(`http://localhost:5000/api/undergraduates/${undId}`);
 
       dispatch({ type: UNDERGRADUATE_DELETE, payload: undId });
     } catch (err) {
@@ -260,10 +196,6 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
-        getMajors,
-        addMajor,
-        editMajor,
-        deleteMajor,
         getStudents,
         getStudent,
         addStudent,

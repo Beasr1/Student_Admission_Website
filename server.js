@@ -34,13 +34,11 @@ connection.once("open", () =>
 
 // routes
 const studentRoutes = require("./routes/students");
-const majorRoutes = require("./routes/majors");
 const userRoutes = require("./routes/users");
 const undergraduateRoutes = require("./routes/undergraduates");
 const authRoutes = require("./routes/auth");
 
 app.use("/api/students", studentRoutes);
-app.use("/api/majors", majorRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/undergraduates", undergraduateRoutes);
