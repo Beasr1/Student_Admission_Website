@@ -9,24 +9,24 @@ import lnmlogo from "../../assets/lnm.png";
 import { BsFacebook } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
-function Home({logged}) {
+function Home({ logged }) {
   const [isActive, setisActive] = useState(false);
   const [isActive1, setisActive1] = useState(false);
   const noticeData = [
     {
-      title: "Section 1",
+      title: "Y23 Fee Deposit Msc.",
       content: `Enrollment and Fee deposit Odd Semester-2022-23 (Y-21 Batch -M. Sc. Program)`,
     },
     {
-      title: "Section 2",
+      title: "Y20 Fee Deposit 3rd Year",
       content: `Enrollment and Fee deposit Odd Semester-2022-23 (3rd Year Y-20 Batch UG and Integrated B. Tech-M.Tech program)`,
     },
     {
-      title: "Section 3",
+      title: "Y19 Fee Deposit 4th Year",
       content: `Enrollment and Fee deposit Odd Semester-2022-23 (4th Year Y-19 Batch UG and Integrated B. Tech-M.Tech program`,
     },
     {
-      title: "Section 3",
+      title: "Y21 Fee Deposit Phd Program",
       content: `Enrollment and Fee deposit Odd Semester-2022-23 (Y-21 Ph.D Program)`,
     },
   ];
@@ -50,8 +50,8 @@ function Home({logged}) {
   ];
   const announceData = [
     {
-      title: "Section 1",
-      content: `Enrollment and Fee deposit Odd Semester-2022-23 (Y-21 Batch -M. Sc. Program)`,
+      title: "Gusto 2022!",
+      content: `Gusto 2022 is On 20th Novemeber,2022. Singer Navjot Ahuja coming!`,
     },
     {
       title: "Section 2",
@@ -91,6 +91,7 @@ function Home({logged}) {
         </div>
         <div id="notice-home">
           <div className="notice-header">
+            <h4 id="notice-heading">Notice Board</h4>
             <h4
               className="notice-status"
               onClick={() => {
@@ -100,10 +101,10 @@ function Home({logged}) {
             >
               {isActive ? "-" : "+"}
             </h4>
-            <h4 id="notice-heading">Notice Board</h4>
           </div>
           {isActive && <Noticeboard noticeData={noticeData} />}
           <div className="notice-header">
+            <h4 id="notice-heading">Events</h4>
             <h4
               className="notice-status"
               onClick={() => {
@@ -113,7 +114,6 @@ function Home({logged}) {
             >
               {isActive1 ? "-" : "+"}
             </h4>
-            <h4 id="notice-heading">Events</h4>
           </div>
           {isActive1 && <Noticeboard noticeData={eventData} />}
         </div>
@@ -192,7 +192,7 @@ function Home({logged}) {
         <div className="home-admission">
           <h3 id="lnm-admission">
             {!logged && <Link to="/login">APPLY FOR UG ADMISSION!</Link>}
-            {logged && <Link to="/fillform">APPLY FOR UG ADMISSION logged!</Link>}
+            {logged && <Link to="/fillform">APPLY FOR UG ADMISSION</Link>}
           </h3>
         </div>
       </div>

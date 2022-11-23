@@ -5,25 +5,17 @@ import "./Announcement.css";
 const Annoucement = () => {
   const accordionData = [
     {
-      title: "Section 1",
-      content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
-      laborum cupiditate possimus labore, hic temporibus velit dicta earum
-      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
-      voluptatem.`,
+      title: "Gusto 2022!",
+      content: `Gusto 2022 is On 20th Novemeber,2022. Singer Navjot Ahuja coming!`,
     },
     {
-      title: "Section 2",
-      content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
-      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
-      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
-      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
-      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
-      Repudiandae, mollitia id reprehenderit a ab odit!`,
+      title: "Vivacity 2023!",
+      content: `Vivavcity 2023 is Expected to be held in Feb 2023!sam similique omnis architecto ducimus magnam accusantium corrupti
+      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos `,
     },
     {
-      title: "Section 3",
-      content: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
-      quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+      title: "LNM Celebrates 75th Independence Day!",
+      content: `Sapiente expedita hic obcaecati, laborio
       dolor ut sequi minus iste? Quas?`,
     },
   ];

@@ -33,7 +33,11 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const { getStudents, getMajors } = useAppContext();
-  const [logged, setLogged] = useState({ user: false, admin: false });
+  const [logged, setLogged] = useState({
+    student: false,
+    admin: false,
+    person: true,
+  });
   const user = localStorage.getItem("token");
   const admin = localStorage.getItem("user");
   const password = localStorage.getItem("pass");
@@ -42,39 +46,42 @@ const App = () => {
   useEffect(() => {
     getStudents();
     getMajors();
-    console.log(user);
-    if (user) setLogged(true, false);
+    // console.log(user);
+    // if (user) setLogged(true, false, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if (admin === "a@gmail.com" && password === "Naman@1234") {
       console.log("admin");
       setAdministrator("admin");
-      setLogged(false, true);
+      setLogged({ student: false, admin: true, person: false });
     } else {
       setAdministrator("user");
-      setLogged(true, false);
+      setLogged({ student: true, admin: false, person: false });
     }
 
     if (!admin || !user) {
       setAdministrator("none");
-      setLogged(false, false);
+      setLogged({ student: false, admin: false, person: true });
     }
+    console.log(logged);
   }, []);
 
   return (
     <div className="lol">
+      {(logged.student || logged.person) && (
+        <NavbarHome logged={logged.student} />
+      )}
+      {logged.admin && <Navbar logged={logged.admin} />}
       <Routes>
-        {!logged.user && !logged.admin && (
+        {!logged.student && !logged.admin && (
           <Route path="/login" exact element={<Login />} />
         )}
 
-        {!logged.user && !logged.admin && (
+        {!logged.student && !logged.admin && (
           <Route path="/signup" exact element={<Signup />} />
         )}
       </Routes>
       {adminstrator === "admin" ? (
         <>
-          {logged.admin && <Navbar logged={logged.admin} />}
-
           <Routes>
             {/* <Route path="/login" exact element={<Login />} /> */}
             {user && <Route exact path="/" element={<StudentList />} />}
@@ -90,7 +97,6 @@ const App = () => {
       ) : (
         // client
         <>
-          {logged.user && <NavbarHome logged={logged.user} />}
           <Routes>
             <Route exact path="/" element={<Home logged={logged} />} />
             {user && <Route exact path="/about" element={<About />} />}
@@ -100,7 +106,7 @@ const App = () => {
             {user && (
               <Route
                 exact
-                path="/students/edit/:id"
+                path="//students/edit/:id"
                 element={<EditStudent />}
               />
             )}
@@ -118,7 +124,7 @@ const App = () => {
             <Route
               path="/Admission"
               exact
-              element={<Admission logged={logged} />}
+              element={<Admission logged={logged.student} />}
             />
             <Route path="/life" exact element={<Life />} />
             <Route path="/Placement" exact element={<Placement />} />

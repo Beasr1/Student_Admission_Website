@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = ({ logged }) => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Navbar = ({ logged }) => {
     window.location = "/login";
   };
   return (
-    <nav className="navbar navbar-dark bg-success navbar-expand-md">
+    <nav className="navbar  bg navbar-expand-md ">
       <div className="container">
         <Link
           to="/"
@@ -36,8 +37,10 @@ const Navbar = ({ logged }) => {
               </Link>
             </li>
             {logged && (
-              <li className="nav-item">
-                <button onClick={handleLogout}>Logout</button>
+              <li>
+                <button onClick={handleLogout} className="submit">
+                  Logout
+                </button>
               </li>
             )}
           </ul>
